@@ -36,7 +36,7 @@ public class MemoryModel {
 	Map processList = new HashMap();
 	Map fileList = new HashMap();
 	
-	public boolean addProcess(String pName, int pSize){
+	public boolean addProcess(String processName, int pSize){
 		
 		for (int i = 0; i < free.size(); i++) {
 			if (free.get(i).getCapacity() >= pSize) {
@@ -45,25 +45,25 @@ public class MemoryModel {
 				pId = this.getInstance().allocation(pSize);
 				for(MemoryPartition e : this.getInstance().used){
 					if(e.getId() == pId){
-						e.setName(pName);
+						e.setName(processName);
 						break;
 					}
 				}
-				processList.put(pName, pId);
+				processList.put(processName, pId);
 				return true;
 			}
 		}
 		return false;
 	}
 	
-	public void deleteProcess(String pName){
-		int pId = (Integer)processList.get(pName);
+	public void deleteProcess(String processName){
+		int pId = (Integer)processList.get(processName);
 		
 		System.out.println("deleteProcess used size :"+ this.getInstance().used.size());
 		this.deallocate(pId);
 		System.out.println("deleteProcess used size :"+ this.getInstance().used.size());
 		
-		processList.remove(pName);
+		processList.remove(processName);
 	}
 	
 	public boolean addFile(String fName, String fContent){
@@ -89,25 +89,16 @@ public class MemoryModel {
 		
 	}
 	
-	
-	
-	
-	
-	public boolean requestModify(String fName, String fContent){
+	//touch更新文件内容
+	public boolean requesttouch(String fName, String fContent){
 		int fSize = fContent.length();
-		
-		
+
 		System.out.println("new file size is " + fSize);
 		this.deleteFile(fName);
-		
-		
+
 		for (int i = 0; i < free.size(); i++) {
 			MemoryPartition mp = free.get(i);
 			if (mp.getCapacity() >= fSize) {
-				
-				
-				
-				
 				int fId;
 				fId = this.getInstance().allocation(fSize);
 				fileList.put(fName, fId);
@@ -125,15 +116,15 @@ public class MemoryModel {
 		
 	}
 	
-	
-	
-	public void deleteFile(String pName){
-		int fId = (Integer)fileList.get(pName);
-		System.out.println("hey!delete!!!!!!!!!!!!!!!!!" + pName + " id is " + fId);
+	//删除文件
+	public void deleteFile(String processName){
+		int fId = (Integer)fileList.get(processName);
+		System.out.println("hey!delete!!!!!!!!!!!!!!!!!" + processName + " id is " + fId);
 		this.getInstance().deallocate(fId);
-		fileList.remove(pName);
+		fileList.remove(processName);
 	}
-	
+
+	//show文件
 	public String fileShow(String fName){
 		int fId = (Integer)fileList.get(fName);
 		for(MemoryPartition e : this.getInstance().used){
@@ -147,9 +138,7 @@ public class MemoryModel {
 	}
 	
 	
-	
-	
-	
+	//内存分配空间
 	public int allocation(int size) {
 		for (int i = 0; i < free.size(); i++) {
 			//获取空闲内存中的索引i对应的内存分区结构数据
@@ -181,7 +170,8 @@ public class MemoryModel {
 				JOptionPane.WARNING_MESSAGE, null,null, "OK");
 		throw new RuntimeException("Not Enough Memory Exception");
 	}
-	
+
+	//内存释放
 	public void deallocate(int mid) {
 		MemoryPartition mp = null;
 		
@@ -199,15 +189,17 @@ public class MemoryModel {
 			emerge();
 		}
 	}
-	
+
+	/*
 	public void free_all(){
 		free.removeAll(free);
 		used.removeAll(used);
 		MemoryPartition mp = new MemoryPartition(1, 640, "free", "In");
 		free.add(mp);
 		}
+		*/
 	
-	
+	//合并内存空间
 	private void emerge() {
 		Collections.sort(this.getInstance().free);
 		for (int i = this.getInstance().free.size() - 2; i >= 0; --i) {
@@ -230,6 +222,7 @@ public class MemoryModel {
 		return used;
 	}
 
+	//获取内存空间大小
 	public long getSize(){
 		int total=0;
 		for(MemoryPartition mp: free)

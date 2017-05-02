@@ -25,10 +25,12 @@ public class MemoryPartition implements Comparable<MemoryPartition> {
 		this.status = status;
 	}
 
+	//构造函数
 	public MemoryPartition () { 
 		this.id = ++counter;
 	}
 
+	//构造函数
 	public MemoryPartition(long start, long capacity, String status, String area) {
 		this.id = ++counter;
 		this.start = start;
@@ -38,18 +40,22 @@ public class MemoryPartition implements Comparable<MemoryPartition> {
 		this.name = null;
 	}
 
+	//设置内存占用名字
 	public  void setName(String name){
 		this.name = name;
 	}
-	
+
+	//获取内存占用名字
 	public String getName(){
 		return name;
 	}
-	
+
+	//清除内存占用名字
 	public void clearName(){
 		this.name = null;
 	}
-	
+
+	//获取内存使用块数
 	public static int getCounter() {
 		return counter;
 	}
@@ -58,7 +64,7 @@ public class MemoryPartition implements Comparable<MemoryPartition> {
 		MemoryPartition.counter = counter;
 	}
 	
-
+	//获取内存使用序号
 	public int getId() {
 		return id;
 	}
@@ -71,6 +77,7 @@ public class MemoryPartition implements Comparable<MemoryPartition> {
 		this.id ++;
 	}
 
+	//获取初始块
 	public long getStart() {
 		return start;
 	}
@@ -79,18 +86,22 @@ public class MemoryPartition implements Comparable<MemoryPartition> {
 		this.start = start;
 	}
 
+	//获取容量
 	public long getCapacity() {
 		return capacity;
 	}
 
+	//设置容量
 	public void setCapacity(long capacity) {
 		this.capacity = capacity;
 	}
-	
+
+	//设置内容
 	public void setContent(String content){
 		this.content = content;
 	}
-	
+
+	//获取内存内容
 	public String getContent(){
 		return content;
 	}

@@ -4,6 +4,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 public class Sort {
+	//按优先级排序
 	public static Vector sortPriority(Vector v) {
 		Vector temp;
 		for (int i = 0; i < v.size(); i++) {
@@ -22,11 +23,12 @@ public class Sort {
 		}
 		return v;
 	}
-	
+
+	//按照时间排序
 	public static Vector sortTime(Vector v) {
 		Vector temp;
 		for (int i = 0; i < v.size(); i++) {
-			// 每轮�?要比较的次数
+			// 每轮要比较的次数
 			for (int j = 0; j < v.size() - i - 1; j++) {
 				Integer first = (Integer) ((Vector) v.elementAt(j))
 						.elementAt(3);
@@ -41,7 +43,8 @@ public class Sort {
 		}
 		return v;
 	}
-	
+
+	//时间片轮转
 	public static Vector sortRR(Vector v) {
 		Vector temp;
 		if(v.size() > 0)
@@ -58,17 +61,17 @@ public class Sort {
 	/*public static void main(String[] args) {
 		BubbleSort sort = new BubbleSort();
 		int[] intArray = { 12, 23, 2, 56, 11, 44 };
-		System.out.println("排序�?:= " + sort.printArray(intArray));
+		System.out.println("排序:= " + sort.printArray(intArray));
 		intArray = sort.bubbleSort(intArray);
 		// Arrays.sort(intArray);
-		System.out.println("排序�?:= " + sort.printArray(intArray));
+		System.out.println("排序:= " + sort.printArray(intArray));
 	}*/
 
 	public int[] bubbleSort(int[] obj) {
 		int temp;
-		// �?要比较的轮数
+		// 要比较的轮数
 		for (int i = 0; i < obj.length; i++) {
-			// 每轮�?要比较的次数
+			// 每轮要比较的次数
 			for (int j = 0; j < obj.length - i - 1; j++) {
 				if (obj[j] > obj[j + 1]) {
 					temp = obj[j];

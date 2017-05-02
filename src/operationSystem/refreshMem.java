@@ -1,3 +1,8 @@
+/*
+ * 内存管理界面刷新
+ */
+
+
 package operationSystem;
 import java.util.Date;
 
@@ -12,7 +17,7 @@ public class refreshMem extends Thread {
 	{
 		this.mem = mem;
 	}
-	
+	//刷新内存界面
 	public void run() 
 	{
 		while (!stop)

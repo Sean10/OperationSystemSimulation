@@ -1,3 +1,9 @@
+/*
+*
+* 线程、文件部分管理操作
+*
+*/
+
 package operationSystem;
 
 import java.awt.Color;
@@ -18,25 +24,29 @@ public class Show {
 	private JPanel ContentPanel = new JPanel();
 	private JPanel panel = new JPanel();
 	JTextArea jta = new JTextArea();
-	
+
+
+	//初始化(测试）
 	public void init(){
-		String content1 = "hi! i am file1. i am a test file!";
-		boolean result = nowdir.requestDiskBlock(mm, "file1",content1);
-		nowdir.addFile(new MyFile("file1", 0, 0));//调用addFile
-		String content2 = "hi! i am file2. i am a test file, too! how are you? it is cold in Beijing.";
-		result = nowdir.requestDiskBlock(mm, "file2",content2);
-		nowdir.addFile(new MyFile("file2", 0, 0));//调用addFile
+		//String content1 = "hi! i am file1. i am a test file!";
+		//boolean result = nowdir.requestDiskBlock(mm, "file1",content1);
+		//nowdir.addFile(new MyFile("file1", 0, 0));//调用addFile
+		//String content2 = "hi! i am file2. i am a test file, too! how are you? it is cold in Beijing.";
+		//result = nowdir.requestDiskBlock(mm, "file2",content2);
+		//nowdir.addFile(new MyFile("file2", 0, 0));//调用addFile
 		
 		
 	}
-	
-	public boolean threadComing(String pName, String operation, String filename){
+
+	//线程状态判断函数
+	public boolean threadComing(String processName, String operation, String filename){
 		String ls = "ls";
 		String dir = "admin";
 		String vim = "vim";
 		if(operation.equals(ls)){
+			//ls操作配置
 			if(filename.equals(dir)){
-				thread t = new thread(pName,operation,filename);
+				thread t = new thread(processName,operation,filename);
 				threadCame.add(t);
 				return true;
 			}
@@ -44,43 +54,47 @@ public class Show {
 				return false;
 		}
 		else if(operation.equals(vim)){
+			//新建文件线程操作
 			MyFile f = nowdir.getFile(filename);
 			if(f != null)
 				return false;
 			else{
-				thread t = new thread(pName,operation,filename);
+				thread t = new thread(processName,operation,filename);
 				threadCame.add(t);
 				return true;
 			}
 		}
 		else{
+			//对其他(rm,cat,touch)操作新建线程
 			MyFile f = nowdir.getFile(filename);
 			if(f == null)
 				return false;
 			else{
-				thread t = new thread(pName,operation,filename);
+				thread t = new thread(processName,operation,filename);
 				threadCame.add(t);
 				return true;
 			}
 		}
 	}
-	
-	public boolean threadStart(String pName){
+
+	//启动线程
+	public boolean threadStart(String processName){
 		Iterator it = threadCame.iterator();
+		//启动所有的线程
 		while(it.hasNext()){
 			thread temp = (thread) it.next();
-			if(temp.getpName().equals(pName)){
+			if(temp.getprocessName().equals(processName)){
 				String op = temp.getOperation();
 				String fn = temp.getFilename();
 				switch(op){
-				case "type":
+				case "cat":
 					view(mm, fn);
 					return true;
 				case "ls":
 					showAll();
 					return true;
-				case "modify":
-					modify(mm,fn);
+				case "touch":
+					touch(mm,fn);
 					return true;
 				default:
 					return true;
@@ -89,43 +103,45 @@ public class Show {
 		}
 		return false;
 	}
-	
-	public boolean threadEnd(String pName){
+
+	//接收结束线程信号，结束操作
+	public boolean threadEnd(String processName){
 		Iterator it = threadCame.iterator();
 		while(it.hasNext()){
 			thread temp = (thread) it.next();
-			if(temp.getpName().equals(pName)){
+			if(temp.getprocessName().equals(processName)){
 				String op = temp.getOperation();
 				String fn = temp.getFilename();
 				switch(op){
 				case "vim":
 					create(mm,fn);
 					return true;
-				case "rmfile":
+				case "rm":
 					delete(mm,fn);
 					return true;
-				case "type":
-					//关掉弹出
+				case "cat":
+					//关掉弹出窗口
 					closeView();
 					return true;
 				case "ls":
-					//关掉弹出�?
+					//关掉弹出窗口
 					showEnd();
 					return true;
-				case "modify":
+				case "touch":
 					//
-					modifyEnd(fn);
+					touchEnd(fn);
 					return true;
 				}
 			}
 		}
 		return false;
 	}
-	
+
+	//创建文件
 	public void create(MemoryModel mm, String filename){
 		MyFile a = nowdir.getFile(filename);
 		if(a==null){
-			nowdir.addFile(new MyFile(filename, 0, 0));//调用addFile
+			nowdir.addFile(new MyFile(filename, 0, 0));
 			String content = filename;
 			boolean result = nowdir.requestDiskBlock(mm, filename,content);
 			if(result == true)
@@ -135,11 +151,14 @@ public class Show {
 		}
 		//System.out.println(nowdir.);
 	}
-	
+
+	//删除文件
 	public void delete(MemoryModel mm, String filename){
-		MyFile a = nowdir.getFile(filename);//看是否有重名的文�?
+		//看是否有重名的文件
+		MyFile a = nowdir.getFile(filename);
 		if(a != null){
-			nowdir.deleteFile(filename);//在该目录下删除该文件
+			//在该目录下删除该文件
+			nowdir.deleteFile(filename);
 			//if(nowdir.requestDelete(filename) == true)
 			nowdir.requestDelete(mm, filename);
 			JOptionPane.showMessageDialog(null, "Deletion completed!", "succeed", JOptionPane.PLAIN_MESSAGE); 
@@ -147,15 +166,13 @@ public class Show {
 		else
 			JOptionPane.showMessageDialog(null, "Sorry! The file doesn't exit!", "alert", JOptionPane.ERROR_MESSAGE); 
 	}
-	
+
+	//查看文件
 	public void view(MemoryModel mm,String filename){
 		MyFile a = nowdir.getFile(filename);
 		if(a!=null){
 			String output = nowdir.requestView(mm, filename);
-			//JFrame frame = new JFrame(filename);
 			frameT.setTitle(filename);
-			//JPanel ContentPanel = new JPanel();
-			//JPanel panel = new JPanel();
 			frameT.getContentPane().add(ContentPanel);
 			//JTextArea jta = new JTextArea(output,10,15);
 			jta.setText(output);
@@ -171,29 +188,29 @@ public class Show {
 		else
 			JOptionPane.showMessageDialog(null, "Sorry! The file doesn't exit!", "alert", JOptionPane.ERROR_MESSAGE); 
 	}
-	
+
+	//关闭查看
 	public void closeView(){
 		frameT.setVisible(false);
 	}
-	
+
+	//查看所有的
 	public void showAll(){
 		nowdir.lsNew();
-		//nowdir.ls();
 	}
-	
+
+	//关闭ls窗口
 	public void showEnd(){
 		nowdir.closeLs();
 	}
-	
-	public void modify(MemoryModel mm,String filename){
+
+	//更新文件修改时间
+	public void touch(MemoryModel mm,String filename){
 		MyFile a = nowdir.getFile(filename);
 		if(a!=null){
 			String output = nowdir.requestView(mm, filename);
 			frameT.setTitle(filename);
-			//JPanel ContentPanel = new JPanel();
-			//JPanel panel = new JPanel();
 			frameT.getContentPane().add(ContentPanel);
-			//JTextArea jta = new JTextArea(output,10,15);
 			jta.setText(output);
 			jta.setLineWrap(true);
 			ContentPanel.add(panel);
@@ -203,22 +220,20 @@ public class Show {
 			frameT.setLocation(50, 50);
 			frameT.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			panel.setBackground(new Color(255, 250, 205));
-			
-			//modify
-			
 		}
 		else
 			JOptionPane.showMessageDialog(null, "Sorry! The file doesn't exit!", "alert", JOptionPane.ERROR_MESSAGE); 
 	}
-	
-	public void modifyEnd(String filename){
+
+	//界面更新文件操作
+	public void touchEnd(String filename){
 		String m = jta.getText();
 		boolean result;
-		result = mm.requestModify(filename,m);
+		result = mm.requesttouch(filename,m);
 		if(result == false)
 			JOptionPane.showMessageDialog(null, " Sorry! Failed! ", "alert", JOptionPane.ERROR_MESSAGE); 
 		else
-			JOptionPane.showMessageDialog(null, "Modify completed!", "succeed", JOptionPane.PLAIN_MESSAGE); 
+			JOptionPane.showMessageDialog(null, "touch completed!", "succeed", JOptionPane.PLAIN_MESSAGE);
 		frameT.setVisible(false);
 	}
 }

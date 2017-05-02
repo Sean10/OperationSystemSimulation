@@ -17,7 +17,8 @@ public class Memory {
 	JFrame frame = new JFrame("Memory Management");
 	
 	private MemoryPanel memPanel;
-	
+
+	//构造函数
 	public Memory () {
 		
 		memPanel = new MemoryPanel(this);
@@ -35,14 +36,15 @@ public class Memory {
 		
 		
 	}
-	
+
+	//监听，
 	ActionListener al = new ActionListener() {
 		public void actionPerformed(ActionEvent ae) {
 			layout.show(ContentPanel, ae.getActionCommand());
 		}
 	};
 	
-	
+	//内存管理ui
 	JPanel createContentPanel() {
 		ContentPanel.add(memPanel.getPanel(), "Memory");
 		return ContentPanel;
@@ -53,6 +55,7 @@ public class Memory {
 		frame.dispose();
 	}
 
+	//获取内存界面
 	public MemoryPanel getMemoryPanel()
 	{
 		return memPanel;

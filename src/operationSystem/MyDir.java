@@ -17,24 +17,21 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 public class MyDir implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 
-	/** 目录名 */
+	// 目录名
 	private String name;
 
-	/** 父目录 */
+	// 父目录
 	private MyDir fatherDir;
-	/** 该目录下目录列表 */
+	// 该目录下目录列表
 	private Hashtable<String, MyDir> dirlist = new Hashtable<String, MyDir>();
-	/** 该目录下文件列表 */
+	// 该目录下文件列表
 	private Hashtable<String, MyFile> filelist = new Hashtable<String, MyFile>();
-	/** 该目录大小 */
+	// 该目录大小
 	private int oldsize;
 	private int newsize;
-	/** 记录该目录所占用的磁盘块序号 */
+	// 记录该目录所占用的磁盘块序号
 	private ArrayList<Integer> usedblock = new ArrayList<Integer>();
 	
 	
@@ -100,9 +97,8 @@ public class MyDir implements Serializable{
 			usedblock.add(a);
 		}
 	}
-	/**
-	 * 更新目录的大小
-	 */
+
+	// 更新目录的大小
 	public void updateSize(){
 		this.newsize=MyDiskBlock.getSize()*usedblock.size();//得到每块磁盘块的大小和所用的磁盘块数量，乘积为大小
 	}
@@ -155,11 +151,7 @@ public class MyDir implements Serializable{
 	}
 
 
-
-	/**
-	 * 显示目录下所有文件和目录
-	 * 
-	 */
+	 //显示目录下所有文件和目录
 	public void ls() {
 		int count = 0;
 		Iterator<String> a = filelist.keySet().iterator();
@@ -182,10 +174,7 @@ public class MyDir implements Serializable{
 			System.out.println();
 	}
 
-	/**
-	 * 跳转cd
-	 * 
-	 */
+	 // 跳转cd
 	public MyDir cd(String name) {
 
 		return dirlist.get(name);
@@ -199,7 +188,7 @@ public class MyDir implements Serializable{
 	 * 根据目录名得到该目录
 	 * 
 	 * @param oldname
-	 *            目录名，为String�?
+	 *            目录名，为String类型
 	 * 
 	 */
 	public MyDir getDir(String oldname) {
@@ -210,7 +199,7 @@ public class MyDir implements Serializable{
 	 * 添加目录
 	 * 
 	 * @param a
-	 *            �?个MyDir的实�?
+	 *            创建个MyDir的实例
 	 */
 	public void addDir(MyDir a) {
 		if(dirlist.containsKey(a.getName()))
@@ -232,7 +221,7 @@ public class MyDir implements Serializable{
 	 * 根据文件名得到该文件
 	 * 
 	 * @param filename
-	 *            文件名，为String�?
+	 *            文件名，为String类型
 	 * 
 	 */
 	public MyFile getFile(String filename) {
@@ -240,10 +229,10 @@ public class MyDir implements Serializable{
 	}
 
 	/**
-	 * 增加�?个文�?
+	 * 增加一个文件
 	 * 
 	 * @param filename
-	 *            文件名，为String�?
+	 *            文件名，为String类型
 	 * 
 	 */
 	public void addFile(MyFile a) {

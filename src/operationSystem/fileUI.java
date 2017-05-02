@@ -1,3 +1,7 @@
+/*
+ * 文件操作 UI
+ */
+
 package operationSystem;
 
 import java.awt.BorderLayout;
@@ -27,7 +31,7 @@ public class fileUI implements ActionListener {
 	JTextField login = new JTextField("");
 	JLabel username = new JLabel("input your username:");
 	
-	
+	//构造函数
 	public fileUI(){
 		JPanel panel1 = new JPanel(new BorderLayout(7, 7));
 		panel1.setBorder(BorderFactory.createEmptyBorder(7, 7, 7, 7));
@@ -50,11 +54,13 @@ public class fileUI implements ActionListener {
 		frame.setLocation(500, 300);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
-	
+
+	//关闭窗口
 	public void close() {
 		frame.dispose();
 	}
-	
+
+	//监听登录信号
 	public void actionPerformed(ActionEvent e){
 		
 		if(e.getSource() == LoginButton){
@@ -64,10 +70,10 @@ public class fileUI implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Wrong Username! Please input again!", "alert", JOptionPane.ERROR_MESSAGE); 
 			}
 			else{
-				JOptionPane.showMessageDialog(null, "Welcome! The commands are defined internally. Type `help' to see this list.", "welcome", JOptionPane.PLAIN_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Welcome! The commands are defined internally. cat `help' to see this list.", "welcome", JOptionPane.PLAIN_MESSAGE);
 				close();
 				try {
-					//这里可以把命令行改成图形界面操作
+					//这里以后可以把命令行改成图形界面操作
 					MainTest file = new MainTest(username);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block

@@ -4,12 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class MyFile implements Serializable{
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
-	private int oldsize; // 修改前文件大�?
-	private int newsize; // 修改后文件大�?
+	private int oldsize; // 修改前文件大小
+	private int newsize; // 修改后文件大小
 
 	public int getOldsize() {
 		return oldsize;
@@ -66,10 +63,10 @@ public class MyFile implements Serializable{
 	}
 
 	/**
-	 * �?个文件较大，添加磁盘块以保存该文件内�?
+	 *
 	 * 
 	 * @param a
-	 *            要添加到文件磁盘列表的磁盘块�?
+	 *            要添加到文件磁盘列表的磁盘块
 	 */
 	public void addBlock(MyDiskBlock a) {
 		this.blocklist.add(a);

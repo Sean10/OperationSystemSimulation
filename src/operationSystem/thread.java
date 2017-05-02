@@ -2,21 +2,21 @@ package operationSystem;
 
 public class thread {
 
-	private String pName;
+	private String processName;
 	private String operation;
 	private String filename;
 	
-	public thread(String pName, String operation, String filename) {
+	public thread(String processName, String operation, String filename) {
 		super();
-		this.pName = pName;
+		this.processName = processName;
 		this.operation = operation;
 		this.filename = filename;
 	}
-	public String getpName() {
-		return pName;
+	public String getprocessName() {
+		return processName;
 	}
-	public void setpName(String pName) {
-		this.pName = pName;
+	public void setprocessName(String processName) {
+		this.processName = processName;
 	}
 	public String getOperation() {
 		return operation;

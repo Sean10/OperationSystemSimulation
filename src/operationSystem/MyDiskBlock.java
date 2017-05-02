@@ -4,11 +4,9 @@ import java.io.Serializable;
 
 
 public class MyDiskBlock implements Serializable{
-	   /**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
-	private static int size=5;    //磁盘块固定大小为10个字�?
+	private static int size=5;    //磁盘块固定大小为10个字节
        private int id;               //记录磁盘块放置在磁盘上的位置
        private StringBuffer content=new StringBuffer();
        public MyDiskBlock(){

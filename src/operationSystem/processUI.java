@@ -1,3 +1,7 @@
+/*
+ * 进程管理UI
+ */
+
 package operationSystem;
 
 import java.awt.*;
@@ -12,12 +16,6 @@ import javax.swing.table.DefaultTableModel;
 public class processUI extends JFrame implements ActionListener {
 	private static processUI frm;
 	private static final long serialVersionUID = 1L;
-	
-	/*被static修饰的成员变量和成员方法独立于该类的任何对象�?
-	 *也就是说，它不依赖类特定的实例，被类的所有实例共享�??
-
-	 *只要这个类被加载，Java虚拟机就能根据类名在运行时数据区的方法区内定找到他们�?
-	 *因此，static对象可以在它的任何对象创建之前访问，无需引用任何对象�?*/
 	
 	private JPanel jContentPane = null;
 	private JPanel InfoPanel = null;
@@ -37,12 +35,7 @@ public class processUI extends JFrame implements ActionListener {
 	private JButton cancel = null;
 	
 	JDialog intrDialog = new JDialog();
-	
-	/*在设置界面时，可能会遇到在一个较小的容器窗体中显示一个较大部分的内容�?
-	 * 这时可以使用 JScrollPane面板，JscrollPane面板是带滚动条的面板�?
-	 * 也是�?种容器，但是常用于布置单�? 控件，并且不可以使用布局管理器�??
-	 * 如果�?要在JScrollPane面板中放置多个控件，�?要将多个控件放置到JPanel 面板上，
-	 * 然后将JPanel面板作为�?个整体控件添加到JScrollPane控件上�??*/
+
 	
 	private JTable preparedTable = null;
 	
@@ -50,9 +43,8 @@ public class processUI extends JFrame implements ActionListener {
 	
 	private DefaultTableModel defaultTableModel = null; 
 	
-	/*DefaultTableModel�? TableModel 的一个实现，它使用一�? Vector 来存储单元格的�?�对象，
-	 * �? Vector 由多�? Vector 组成�?
-	 * 通过DefaultTableModel可以对表格进行数据的增删�?*/
+	/*DefaultTableModel是 TableModel 的一个实现，它使用一个 Vector 来存储单元格的对象，
+	 * 通过DefaultTableModel可以对表格进行数据的增删改*/
 	
 	private JPanel blockPanel = null;
 	private JPanel runPanel = null;
@@ -82,6 +74,7 @@ public class processUI extends JFrame implements ActionListener {
 		if(infoScroll == null){
 			infoScroll = new JScrollPane(getRunInfo());
 			infoScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
 		}
 		return infoScroll;
 	}
@@ -90,7 +83,7 @@ public class processUI extends JFrame implements ActionListener {
 		if(infoPane == null){
 			infoPane = new JPanel();			
 			infoPane.setBorder(
-				BorderFactory.createTitledBorder(null, "DISPATCH INFO", /*createTitledBorder建立�?个标题边界*/
+				BorderFactory.createTitledBorder(null, "DISPATCH INFO", /*createTitledBorder建立一个标题边界*/
 						TitledBorder.DEFAULT_JUSTIFICATION,
 						TitledBorder.DEFAULT_POSITION));
 			infoPane.add(getInfoScroll());
@@ -106,6 +99,7 @@ public class processUI extends JFrame implements ActionListener {
 		return runInfo;
 	}
 
+	//构造函数，初始化Ui
 	public processUI() {
 		super();
 		initialize();
@@ -170,13 +164,8 @@ public class processUI extends JFrame implements ActionListener {
 		return prparedScrollPane;
 	}
 	
-	/*synchronized 方法：�?�过在方法声明中加入 synchronized关键字来声明 synchronized 方法。如�?  
-	public synchronized void accessVal(int newVal);  
-	synchronized 方法控制对类成员变量的访问：每个类实例对应一把锁，每�? synchronized 方法都必须获得调用该方法的类实例的锁方能
-         执行，否则所属线程阻塞，方法�?旦执行，就独占该锁，直到从该方法返回时才将锁释放，此后被阻塞的线程方能获得该锁，重新进入可执�?
-         状�?��?�这种机制确保了同一时刻对于每一个类实例，其�?有声明为 synchronized 的成员函数中至多只有�?个处于可执行状�?�（因为至多只有
-         �?个能够获得该类实例对应的锁），从而有效避免了类成员变量的访问冲突（只要所有可能访问类成员变量的方法均被声明为 synchronized)*/
-	
+
+	//获取表
 	public synchronized JTable getPreparedTable() {
 		if (preparedTable == null) {
 			preparedTable = new JTable();
@@ -194,7 +183,7 @@ public class processUI extends JFrame implements ActionListener {
 
 	public DefaultTableModel getDefaultTableModel() {
 		if (defaultTableModel == null) {
-			Object[] heads = { "PID", "PNAME", "PRI", "TIME", "MEM" };
+			Object[] heads = { "PID", "processName", "PRI", "TIME", "MEM" };
 			defaultTableModel = new DefaultTableModel(heads, 0);
 
 		}
@@ -203,7 +192,7 @@ public class processUI extends JFrame implements ActionListener {
 	
 	public DefaultTableModel getDefaultTableModelr() {
 		if (defaultTableModel == null) {
-			Object[] heads = { "PID", "PNAME", "PRI", "TIME", "MEM" };
+			Object[] heads = { "PID", "processName", "PRI", "TIME", "MEM" };
 			defaultTableModel = new DefaultTableModel(heads, 0);
 
 		}
@@ -341,7 +330,7 @@ public class processUI extends JFrame implements ActionListener {
 	
 	public DefaultTableModel getDefaultTableModel1() {
 		if (defaultTableModel1 == null) {
-			Object[] heads = { "PID", "PNAME", "PRI", "TIME", "MEM" };
+			Object[] heads = { "PID", "processName", "PRI", "TIME", "MEM" };
 			defaultTableModel1 = new DefaultTableModel(heads, 0);
 		}
 		return defaultTableModel1;
@@ -349,7 +338,7 @@ public class processUI extends JFrame implements ActionListener {
 	
 	public DefaultTableModel getDefaultTableModelt() {
 		if (defaultTableModelt == null) {
-			Object[] heads = { "PID", "PNAME", "PRI", "STATUS", "STATE" };
+			Object[] heads = { "PID", "processName", "PRI", "STATUS", "STATE" };
 			defaultTableModelt = new DefaultTableModel(heads, 0);
 		}
 		return defaultTableModelt;
@@ -376,21 +365,24 @@ public class processUI extends JFrame implements ActionListener {
 	
 	public DefaultTableModel getDefaultTableModel2() {
 		if (defaultTableModel2 == null) {
-			Object[] heads = { "PID", "PNAME", "PRI", "TIME", "MEM" };
+			Object[] heads = { "PID", "processName", "PRI", "TIME", "MEM" };
 			defaultTableModel2 = new DefaultTableModel(heads, 0);
 		}
 		return defaultTableModel2;
 	}
 	
 	int s;
+	//进程管理操作
 	@SuppressWarnings("deprecation")
 	public void actionPerformed(ActionEvent e) {
 		Schedule thread1 = new Schedule(getFrame(), strategy, showing, memorymodel);
 		TimeSlice thread2 = new TimeSlice(getFrame(),strategy, showing, memorymodel);
+		//创建进程
 		if (e.getSource() == b4) {
 			Addprocessor d = new Addprocessor(this, "create new process", false, strategy, showing);
 			d.show();
 		}
+		//block进程
 		else if (e.getSource() == b2) {
 			int index = getFrame().getRunTable().getSelectedRow();
 			if (index != -1) {
@@ -405,6 +397,7 @@ public class processUI extends JFrame implements ActionListener {
 				JOptionPane.showMessageDialog(null, "Please choose a process in running table.",
 						"Warning", JOptionPane.YES_OPTION);
 			}
+			//恢复进程到准备区
 		} else if (e.getSource() == b3) {
 			int index = getFrame().getBlockTable().getSelectedRow();
 			if (index != -1) {
@@ -420,10 +413,12 @@ public class processUI extends JFrame implements ActionListener {
 						JOptionPane.YES_OPTION);
 			}
 		}
+		//启动进程
 		else if (e.getSource() == b1) {
 			thread1.start();		
 			thread2.start();
-				}	
+		}
+		//中断进程
 		else if(e.getSource() == b5) {
 			intrDialog.setSize(330, 230);
 			intrDialog.setBounds(660,320,330,230);
@@ -482,6 +477,7 @@ public class processUI extends JFrame implements ActionListener {
 ////			thread1.setStrategy(strategy);
 ////			thread2.setStrategy(strategy);
 //		}
+		//确认，开始执行
 		else if (e.getSource() == confirm) {
 			String name = getNameText().getText();
 			//Integer prior = Integer.valueOf(getPriorityText().getSelectedItem().toString());
@@ -512,7 +508,7 @@ public class processUI extends JFrame implements ActionListener {
 //			jLabel1.setBounds(new java.awt.Rectangle(48, 69, 75, 22));
 //			jLabel1.setText("PROI");
 			jLabel.setBounds(new java.awt.Rectangle(48, 30, 75, 22));
-			jLabel.setText("PNAME");
+			jLabel.setText("processName");
 			Intrpane = new JPanel();
 			Intrpane.setLayout(null);
 			Intrpane.add(jLabel, null);

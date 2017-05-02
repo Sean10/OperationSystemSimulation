@@ -1,3 +1,9 @@
+/*
+*	进程添加窗口模块
+*
+*/
+
+
 package operationSystem;
 
 import java.awt.Color;
@@ -13,23 +19,24 @@ public class Addprocessor extends JDialog implements ActionListener {
 	private JLabel jLabel1 = new JLabel();
 	private JLabel jLabel2 = new JLabel();
 	private JTextField nameText = new JTextField();
-	String[] priority = { "ls", "vim", "rmfile", "type", "modify" };
+	String[] priority = { "ls", "vim", "rm", "cat", "touch" }; //进程选择选项
 	private JComboBox opertionText = new JComboBox(priority);
 	private JTextField fileNameText = new JTextField();;
 	private JButton confirm = null;
 	private JButton cancel = null;
 	private Show showing;
 	
-	private int strategy;
+	private int strategy;	//优先级算法选择策略
 
-
+	//进程添加模块构造函数
 	public Addprocessor(JFrame owner, String title, boolean modal, int strategy, Show showing) {
 		super(owner, title, modal);
 		this.strategy = strategy;
 		this.showing = showing;
 		initialize();
 	}
-	
+
+	//图形界面初始化
 	private void initialize() {
 		this.setSize(330, 230);
 		this.setBounds(660,320,330,230);
@@ -40,6 +47,8 @@ public class Addprocessor extends JDialog implements ActionListener {
 		fileNameText.setBounds(new java.awt.Rectangle(166, 105, 123, 23));
 		
 	}
+
+	//获取内容面板
 	private JPanel getJContentPane() {
 		if (jContentPane == null) {
 			jLabel2.setBounds(new java.awt.Rectangle(48, 106, 75, 22));
@@ -47,7 +56,7 @@ public class Addprocessor extends JDialog implements ActionListener {
 			jLabel1.setBounds(new java.awt.Rectangle(48, 69, 75, 22));
 			jLabel1.setText("OP");
 			jLabel.setBounds(new java.awt.Rectangle(48, 30, 75, 22));
-			jLabel.setText("PNAME");
+			jLabel.setText("ProcessName");
 			jContentPane = new JPanel();
 			jContentPane.setLayout(null);
 			jContentPane.add(jLabel, null);
@@ -62,26 +71,25 @@ public class Addprocessor extends JDialog implements ActionListener {
 		}
 		return jContentPane;
 	}
-	
+
+	//获取进程名
 	private JTextField getNameText() {
-		//if (nameText == null) {
-			//nameText = new JTextField();
-			//nameText.setBounds(new java.awt.Rectangle(165, 31, 125, 21));
-		//}
 		return nameText;
 	}
 	
-	/*JComboBox下拉列表*/
+	//获取下拉列表中的操作名
 	private JComboBox getopertionText() {
 			
 		return opertionText;
 	}
-	
+
+	//获取操作文件名
 	private JTextField getfileNameText() {
 
 		return fileNameText;
 	}
-	
+
+	//确认按钮
 	private JButton getConfirm() {
 		if (confirm == null) {
 			confirm = new JButton();
@@ -91,7 +99,8 @@ public class Addprocessor extends JDialog implements ActionListener {
 		}
 		return confirm;
 	}
-	
+
+	//取消按钮
 	private JButton getcancel() {
 		if (cancel == null) {
 			cancel = new JButton();
@@ -117,6 +126,7 @@ public class Addprocessor extends JDialog implements ActionListener {
 //		return flag;
 //	}
 
+	//监听确认、取消按钮，对创建的进程根据输入内容判断状态正确与否
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == confirm) {
 			String name = this.getNameText().getText();
@@ -140,15 +150,7 @@ public class Addprocessor extends JDialog implements ActionListener {
 //				int priority = (int) (Math.random() * 6 / 1);
 //				int runTime = (int) (Math.random() * 25 / 1);
 //				int memUse = (int) (Math.random() * 15 / 1);
-				
-				
-				/*这里是给卓�?�发操作和文件名还有进程号，卓�?�需要存下这些东西，
-				 * 之后我这边时间到了再给卓思发�?个进程名就可以了
-				 * 
-				new �?个包含FileExist函数的对�?
-				boolean fexist = FileExist(operation, file，name );  都是String类型*/
-				
-				//boolean fexist = true; //只是为了测试�?
+
 				boolean fexist = showing.threadComing(name, operation, file);
 				if(fexist == true)
 				{

@@ -1,3 +1,7 @@
+/*
+ * 主界面
+ */
+
 package operationSystem;
 
 import java.awt.*;
@@ -27,13 +31,13 @@ public class MainUI extends JFrame implements ActionListener{
 		JPanel J=(JPanel)this.getContentPane();
 		//初始化主UI容器,获取内容面板
 		getContentPane();
-		setSize(555, 355);
+		setSize(320, 568);
 		setLocation(350, 150);
 	    this.setLayout(null);
 	    J.setOpaque(false);
 		
 	    // 设置背景
-	    ImageIcon background = new ImageIcon("main.png");  
+	    ImageIcon background = new ImageIcon("main.jpg");
 	 	// 设置背景实例
 	 	JLabel label = new JLabel(background);  
 	 	// 设置背景坐标、长宽
@@ -41,11 +45,11 @@ public class MainUI extends JFrame implements ActionListener{
 	 	// 设置多层面板，添加背景板
 	 	this.getLayeredPane().add(label, new Integer(Integer.MIN_VALUE));  
 	 	
-	 	process.setBounds(80, 135, 100, 30);
+	 	process.setBounds(110, 135, 100, 30);
 	 	add(process);
 //	 	memory.setBounds(80, 170, 100, 30);
 //	 	add(memory);
-	 	file.setBounds(80, 195, 100, 30);
+	 	file.setBounds(110, 195, 100, 30);
 	 	add(file);
 
 	 	//设置监听
@@ -59,13 +63,13 @@ public class MainUI extends JFrame implements ActionListener{
 		
 	}
 
-
+	//构造函数
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
             MainUI main= new MainUI();
 	}
 
-
+	//监听，调用进程和文件管理
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub

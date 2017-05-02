@@ -1,23 +1,20 @@
+/*
+ *  内存界面
+ */
+
+
 package operationSystem;
 
 import java.awt.*;
 import java.awt.event.*;
-
 import javax.swing.*;
-
 import javax.swing.table.*;
-
-
-//import osprac.vo.*;
 
 import java.util.*;
 import java.util.List;
 
 
 public class MemoryPanel implements ActionListener{
-	
-	
-	
 	Memory mem;
 	BackgroundPanel panel = new BackgroundPanel((new ImageIcon("graphics\\images.jpg")).getImage());
 	//JPanel panel = new JPanel(new BorderLayout());
@@ -52,7 +49,8 @@ public class MemoryPanel implements ActionListener{
 
 		return panel;
 	}	
-	
+
+	//创建中心面板
 	JScrollPane createCenterPanel() {
 		JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.getViewport().setOpaque(false);
@@ -70,9 +68,8 @@ public class MemoryPanel implements ActionListener{
 		return panel;
 	}
 	*/
+	//刷新内存界面
 	public void refresh() {
-		
-//		System.out.println("Test");
 		List<MemoryPartition> free = MemoryModel.getInstance().getFree();
 		List<MemoryPartition> used = MemoryModel.getInstance().getUsed();
 		List<MemoryPartition> all = new ArrayList<MemoryPartition>();
@@ -81,13 +78,12 @@ public class MemoryPanel implements ActionListener{
 		Collections.sort(free);
 		all.addAll(free);
 		Collections.sort(all);
-		
-	
+
 		showData(all);
 		panel.repaint();
 	}
 	
-	
+	//show内存使用
 	public void showData(List<MemoryPartition> all) {
 		String [] [] data = new String [all.size()] [];
 
@@ -143,7 +139,7 @@ public class MemoryPanel implements ActionListener{
 		*/
 }
 	
-	
+	//设置背景界面类
 class BackgroundPanel extends JPanel{
 	Image im;
 	public BackgroundPanel(Image im)

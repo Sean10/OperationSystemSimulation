@@ -24,7 +24,7 @@ public class MainTest {
 		
 			MyDir k = new MyDir();
 			k = nowdir;
-			while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目�?
+			while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目录
 			{
 
 				brid.push(nowdir.getName()+"/");
@@ -40,7 +40,7 @@ public class MainTest {
 
 			if (s.equals("ls")) // --->目录显示
 				nowdir.ls();
-			else if (s.startsWith("cd") && !s.equals("cdup")) { // --->跳转到指定目�?
+			else if (s.startsWith("cd") && !s.equals("cd ..")) { // --->跳转到指定目�?
 				String real = s.substring(3, s.length()-1);//读取文件名，要除去首尾两个中括号
 				MyDir a = nowdir.cd(real);
 				if (a != null) {//更改当前目录，并记录下父目录
@@ -50,31 +50,31 @@ public class MainTest {
 				} else
 					System.out.println("您输入的目录名有误，请重新输�?");
 
-			} else if (s.equals("cdup")) { // --->跳转到上层目�?
+			} else if (s.equals("cd ..")) { // --->跳转到上层目录
 				if (nowdir.cdReturn() != null)
-					nowdir = nowdir.cdReturn();//如果有父目录，则更改当前目录为其父目�?
+					nowdir = nowdir.cdReturn();//如果有父目录，则更改当前目录为其父目录
 				else
-					System.out.println("已经�?到根目录");//如果没有父目录，则已经是根目�?
+					System.out.println("已经到根目录");//如果没有父目录，则已经是根目录
 
 			}else if (s.startsWith("vim") && s.length() > 4) { // --->创建文件
 				String real = s.substring(4, s.length()-1);//读取文件名，要除去首尾两个中括号
 				nowdir.addFile(new MyFile(real, 0, 0));//调用addFile
 
-			} else if (s.startsWith("rmfile") && s.length() > 7) { // --->删除文件
-				String real = s.substring(7, s.length()-1);//读取文件名，要除去首尾两个中括号
-				MyFile a = nowdir.getFile(real);//看是否有重名的文�?
+			} else if (s.startsWith("rm") && s.length() > 7) { // --->删除文件
+				String real = s.substring(7, s.length()-1);//读取文件名，要除去首尾两个中括号「这里似乎不该-1」，待测试
+				MyFile a = nowdir.getFile(real);//看是否有重名的文件
 				if (a != null) {
-					ArrayList<MyDiskBlock> blocklist = a.getBlocklist();//得到该文件的属�?�：�?用的磁盘�?
+					ArrayList<MyDiskBlock> blocklist = a.getBlocklist();//得到该文件的属性所用的磁盘块
 					ArrayList<Integer> thenw = new ArrayList<Integer>();
 					for (MyDiskBlock one : blocklist) {
 						MyDisk.getInstance().deleteUsed(one.getId());
-						thenw.add(one.getId());//记录下来�?用的磁盘块的ID
+						thenw.add(one.getId());//记录下来使用用的磁盘块的ID
 					}
 					nowdir.deleteFile(real);//在该目录下删除该文件
 
 					MyDir save2 = new MyDir();
 					save2 = nowdir;
-					while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块（删除）和大小，直至根目�?
+					while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块（删除）和大小，直至根目录
 					{
 
 						nowdir.removeold(thenw);//调用removeold删除磁盘ID
@@ -86,13 +86,13 @@ public class MainTest {
 					System.out.println("Succeed to delete.");
 				} else
 					System.out.println("Sorry, the file doesn't exist.");
-			} else if (s.startsWith("renfile") && s.length() > 8) { // --->文件重命�?
+			} else if (s.startsWith("mvfile") && s.length() > 8) { // --->文件重命名
 				String real = s.substring(8, s.length()-1);//读取文件名，要除去首尾两个中括号
 				MyFile a = nowdir.getFile(real);
 				if (a != null) {
 					System.out.println("Please input new file name");
 					String newname = br.readLine().trim();
-					if (nowdir.canPasteFile(new MyFile(newname))) { // 判断是否存在同名文件，如果返回�?�为true则可以重命名
+					if (nowdir.canPasteFile(new MyFile(newname))) { // 判断是否存在同名文件，如果返回值为true则可以重命名
 						if (!newname.equals("")) {
 							nowdir.deleteFile(real);
 							MyFile thnew = a;
@@ -113,7 +113,7 @@ public class MainTest {
 					System.out.println("Please edit");
 					ArrayList<MyDiskBlock> list = a.getBlocklist();
 					ArrayList<Integer> oldused = new ArrayList<Integer>(); // 用来保存原本文件的磁块号
-					StringBuffer all = new StringBuffer();//用来保存原本文件的内�?
+					StringBuffer all = new StringBuffer();//用来保存原本文件的内容
 					
 					for (MyDiskBlock one : list) {
 						oldused.add(one.getId());//保存编辑前文件使用的磁盘块号
@@ -140,9 +140,9 @@ public class MainTest {
 					int point = 0;
 					ArrayList<MyDiskBlock> newFileBlocklist = new ArrayList<MyDiskBlock>();
 					ArrayList<Integer> thenw = new ArrayList<Integer>();
-					int blocksize = MyDiskBlock.getSize();//获取磁盘块大�?
+					int blocksize = MyDiskBlock.getSize();//获取磁盘块大小
 					int sizecount = 0;
-					if (realcontent.length() > blocksize) {//如果内容长度超出�?块磁盘的大小
+					if (realcontent.length() > blocksize) {//如果内容长度超出这块磁盘的大小
 						for (int i = 0; i < realcontent.length() - blocksize; i = i
 								+ blocksize) {
 							StringBuffer op = new StringBuffer(
@@ -154,7 +154,7 @@ public class MainTest {
 							point = i;
 							sizecount++;
 						}
-						//剩下的不足以�?块的内容
+						//剩下的不足以存块的内容
 						StringBuffer rest = new StringBuffer(
 								realcontent.substring(point + blocksize,
 										realcontent.length()));
@@ -172,16 +172,16 @@ public class MainTest {
 						thenw.add(one.getId());
 						newFileBlocklist.add(one);
 					}
-					a.setOldsize(a.getNewsize()); // 将原本的文件大小置为上一次文件大�?
+					a.setOldsize(a.getNewsize()); // 将原本的文件大小置为上一次文件大小
 
 					int newsize = sizecount * blocksize;
-					a.setNewsize(newsize); // 设置文件的最新大�?
+					a.setNewsize(newsize); // 设置文件的最新大小
 					
 					
 
 					MyDir save2 = new MyDir();
 					save2 = nowdir;
-					while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目�?
+					while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目录
 					{
 
 						nowdir.addnew(thenw);
@@ -195,7 +195,7 @@ public class MainTest {
 				} else
 					System.out.println("Sorry, something wrong happened when editing.");
 
-			} else if (s.startsWith("type") && s.length() > 5) { // 显示文件内容
+			} else if (s.startsWith("cat") && s.length() > 5) { // 显示文件内容
 				String filename = s.substring(5, s.length()-1);//读取文件名，要除去首尾两个中括号
 				MyFile a = nowdir.getFile(filename);
 				if (a != null) {
@@ -267,7 +267,7 @@ public class MainTest {
 
 						MyDir save2 = new MyDir();
 						save2 = nowdir;
-						while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目�?
+						while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目录
 						{
 
 							nowdir.addnew(thenw);
@@ -276,7 +276,7 @@ public class MainTest {
 						}
 						nowdir = save2;
 
-						MyFile anoth = new MyFile(filesave.getName()); // 新建�?个文件用来保存复制板里的信息,不要直接用filesave,之前在此处出�?,debug用时2小时,就是因为没new�?个新的MyFile
+						MyFile anoth = new MyFile(filesave.getName()); // 新建一个文件用来保存复制板里的信息（bug)
 						anoth.setBlocklist(newFileBlocklist);
 						anoth.setNewsize(filesave.getNewsize());
 						anoth.setOldsize(filesave.getOldsize());
@@ -290,13 +290,13 @@ public class MainTest {
 					System.out.println("剪切板中没有文件");
 			}
 
-			else if (s.startsWith("rendir") && s.length() > 7) { // --->目录重命�?
+			else if (s.startsWith("rendir") && s.length() > 7) { // --->目录重命名
 				String real = s.substring(7, s.length()-1);
 				MyDir old = nowdir.getDir(real);
 				if (old != null) {
 					System.out.println("请输入新的目录名");
 					String newname = br.readLine().trim();
-					if (nowdir.canPasteDir(new MyDir(newname))) { // 确认该目录下无同名目�?
+					if (nowdir.canPasteDir(new MyDir(newname))) { // 确认该目录下无同名目录
 						if (newname != "") {
 							nowdir.deleteDir(real);
 							MyDir thnew = old;
@@ -326,7 +326,7 @@ public class MainTest {
 
 					MyDir save2 = new MyDir();
 					save2 = nowdir;
-					while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(删除)和大小，直至根目�?
+					while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(删除)和大小，直至根目录
 					{
 
 						nowdir.removeold(all);
@@ -374,7 +374,7 @@ public class MainTest {
 
 						MyDir save2 = new MyDir();
 						save2 = nowdir;
-						while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目�?
+						while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目录
 						{
 
 							nowdir.addnew(thenew);
@@ -395,7 +395,7 @@ public class MainTest {
 				System.out
 						.println("-------------------------Below is the show and jump command------------------------------");
 				System.out
-						.println("ls   show file and direction   cd [dirname]:   jump to the specified direction               cdup	jump to up direction        ");
+						.println("ls   show file and direction   cd [dirname]:   jump to the specified direction               cd ..	jump to up direction        ");
 				System.out
 						.println("---------------------------Below is the direction operation--------------------------------");
 				System.out
@@ -407,7 +407,7 @@ public class MainTest {
 				System.out
 						.println("vim [filename]:create new file       ptfile:paste file       cpfile [filename]:copy file ");
 				System.out
-						.println("renfile [filename]:rename file           rmfile [filename]:delete file       type [filename]:show file");
+						.println("mvfile [filename]:rename file           rm [filename]:delete file       cat [filename]:show file");
 				System.out.println("open :open file");
 				System.out
 						.println("---------------------------Below is the disk operation--------------------------------");
@@ -431,7 +431,7 @@ public class MainTest {
 			else if(s.equals("logout")){
 				MyDir thisone = new MyDir();
 				thisone = nowdir;
-				while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目�?
+				while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块(添加)和大小，直至根目录
 				{
 
 					brid.push(nowdir.getName()+"/");
@@ -441,7 +441,7 @@ public class MainTest {
                System.out.println("You have logout，and you could choose：①exit   ②login 'other user'  ③add new user");
                String in=br.readLine().trim();
                if(in.equals("exit"))  System.exit(0);
-               else if (in.startsWith("login") && in.length() > 6) { //登陆原有的账�?
+               else if (in.startsWith("login") && in.length() > 6) { //登陆原有的账号
    				String anouser = in.substring(6, in.length());
    				if(AllUser.getInstance().whetherExist(anouser)){
    					nowdir=AllUser.getInstance().getUserDir(anouser);

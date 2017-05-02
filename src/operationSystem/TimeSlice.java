@@ -71,20 +71,12 @@ public class TimeSlice extends Thread {
 					DefaultTableModel terdft = (DefaultTableModel) getFrm().getTerTable().getModel();
 					terdft.addRow(temp);
 					rundft.removeRow(p);
-					String pname = (String)tmp.elementAt(1);
+					String processName = (String)tmp.elementAt(1);
 					
-					showing.threadEnd(pname);
-					/*这里要发给卓思说我的进程完了,发�?�进程名，卓思需要根据进程名查找这个进程是干啥的，进行相应的操作
-					 
-					 new �?个包含EndToFile函数的对�?
-					 EndToFile(pname); pname是String类型*/
-
-					/*这里要发给管占明说我的进程完�?,发�?�进程名，管占明释放这个进程占用的内�?
-					 
-					 new �?个包含EndToMem函数的对�?
-					 EndToMem(pname); pname是String类型*/
+					showing.threadEnd(processName);
+					//发送线程结束信号
 					System.out.println("time to use delete");
-					memorymodel.deleteProcess(pname);
+					memorymodel.deleteProcess(processName);
 				}
 			}
 ////			DefaultTableModel dft = (DefaultTableModel) getFrm().getRunTable().getModel();
@@ -106,7 +98,7 @@ public class TimeSlice extends Thread {
 //				Vector tmp1 = (Vector) it1.next();
 //				tmp1.setElementAt("Running", 4);
 //				//System.out.println(sf.format(new Date())
-//						//+ "低级调度--就绪队列中优先权�?高的进程" + tmp1.elementAt(0) + ","
+//						//+ "低级调度--就绪队列中优先权高的进程" + tmp1.elementAt(0) + ","
 //						//+ tmp1.elementAt(1) + "进入cpu");
 //				getFrm().getRunInfo().append(
 //						new Character((char) 13) + sf.format(new Date())

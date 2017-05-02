@@ -1,3 +1,8 @@
+/*
+ * 中断模块
+ */
+
+
 package operationSystem;
 
 import java.text.SimpleDateFormat;
@@ -16,13 +21,14 @@ public class Interrupt extends Thread {
 	
 	private static final SimpleDateFormat sf = new SimpleDateFormat(
 			"HH:mm:ss ");
-	
+	//构造函数
 	public Interrupt(processUI frm, Integer it, String name) {
 		this.frm = frm;
 		this.intrTime = it;
 		this.name = name;
 	}
-	
+
+	//中断线程启动函数，将线程从运行状态转到中断状态
 	public void run() {
 		while (!stop) {
 			try {
@@ -46,8 +52,8 @@ public class Interrupt extends Thread {
 				while (p < vsize) 
 				{
 					Vector tmp = (Vector)v.elementAt(p);
-					String pname = (String)(tmp.elementAt(1));
-					if(pname.equals(name))
+					String processName = (String)(tmp.elementAt(1));
+					if(processName.equals(name))
 					{
 						Object[] temp = {tmp.elementAt(0), tmp.elementAt(1),
 								tmp.elementAt(2), tmp.elementAt(3), tmp.elementAt(4) };
@@ -69,8 +75,8 @@ public class Interrupt extends Thread {
 						while(!introk)
 						{
 							tmp = (Vector)v.elementAt(p);
-							pname = (String)(tmp.elementAt(1));
-							if(pname.equals(name))
+							processName = (String)(tmp.elementAt(1));
+							if(processName.equals(name))
 							{
 								pdft.addRow(temp);
 								bdft.removeRow(p);
@@ -83,7 +89,7 @@ public class Interrupt extends Thread {
 								p++;
 						}
 
-						//调用中断、中断结束程序执行完毕，结束循环条件设置？
+						//调用中断、中断结束程序执行完毕，结束循环条件
 						p = vsize+1;
 					}
 					else
