@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Vector;
 
 import javax.swing.table.DefaultTableModel; //DefaultTableModel使用�?个vector来存储单元格值的对象
+import java.lang.Runnable;
 
 
 public class Schedule extends Thread {
@@ -18,7 +19,8 @@ public class Schedule extends Thread {
 	private int strategy = 1;
 	private Show showing;
 	private MemoryModel memorymodel;
-	
+	private int ls2 = 0;
+
 	public Schedule(processUI frm, int strategy, Show showing, MemoryModel memorymodel) {
 		this.frm = frm;
 		this.strategy = strategy;
@@ -30,8 +32,10 @@ public class Schedule extends Thread {
 	public void run() {
 		while (true) {
 //			System.out.println("ScheduleTEST");
+
+			System.out.println("thread schedule"+ls2++);
 			try {
-				sleep(1);
+				sleep(500);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -82,7 +86,7 @@ public class Schedule extends Thread {
 //							DefaultTableModel rdft = (DefaultTableModel) getFrm()
 //									.getRunTable().getModel();
 							//System.out.println(sf.format(new Date())
-								//	+ "高级调度--后备队列中优先权�?高的进程" + temp[0].toString() + ","
+								//	+ "高级调度--后备队列中优先权高的进程" + temp[0].toString() + ","
 								//	+ temp[1].toString() + "进入就绪队列");
 							getFrm().getRunInfo().append(
 									new Character((char) 13) + sf.format(new Date())

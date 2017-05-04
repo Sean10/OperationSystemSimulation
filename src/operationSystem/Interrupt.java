@@ -9,10 +9,11 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Vector;
+import java.lang.Runnable;
 
 import javax.swing.table.DefaultTableModel;
 
-public class Interrupt extends Thread {
+public class Interrupt extends Thread{
 	
 	boolean stop = false;
 	private processUI frm;
@@ -64,15 +65,15 @@ public class Interrupt extends Thread {
 										+ "Run         " + tmp.elementAt(0)
 										+ "," + tmp.elementAt(1) + " is interrupt\n");
 						try {
-							sleep(intrTime*1000);
+							wait(intrTime*1000);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}
 						p = 0;
 						v = bdft.getDataVector();
-						boolean introk = false;
-						while(!introk)
+						//boolean introk = false;
+						while(true)
 						{
 							tmp = (Vector)v.elementAt(p);
 							processName = (String)(tmp.elementAt(1));
@@ -90,7 +91,7 @@ public class Interrupt extends Thread {
 						}
 
 						//调用中断、中断结束程序执行完毕，结束循环条件
-						p = vsize+1;
+						//p = vsize+1;
 					}
 					else
 						p++;
@@ -127,7 +128,7 @@ public class Interrupt extends Thread {
 //			for(int i=0;i<1000000000;i++);
 //		}
 //		return Timer;
-//		
+//
 //	}
 
 }

@@ -49,7 +49,7 @@ public class MainTest {
 				if (nowdir.cdReturn() != null)
 					nowdir = nowdir.cdReturn();//如果有父目录，则更改当前目录为其父目录
 				else
-					System.out.println("已经到根目录");//如果没有父目录，则已经是根目录
+					System.out.println("Here is the root directory");//如果没有父目录，则已经是根目录
 
 			}else if (s.startsWith("vim") && s.length() > 4) { // --->创建文件
 				String real = s.substring(4, s.length());//读取文件名，要除去首尾两个中括号
@@ -71,7 +71,6 @@ public class MainTest {
 					save2 = nowdir;
 					while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块（删除）和大小，直至根目录
 					{
-
 						nowdir.removeold(thenw);//调用removeold删除磁盘ID
 						nowdir.updateSize();//更新大小
 						nowdir = nowdir.getFatherDir();
@@ -202,7 +201,7 @@ public class MainTest {
 
 					System.out.println(all);
 				} else
-					System.out.println("文件名称输入有误");
+					System.out.println("Sorry, the file you input is wrong.");
 
 			} else if (s.startsWith("cpfile") && s.length() > 7) { // --->文件复制
 				String real = s.substring(7, s.length());//读取文件名，要除去首尾两个中括号
@@ -210,9 +209,9 @@ public class MainTest {
 				if (a != null) {
 					filesave=new MyFile();
 					filesave = a;
-					System.out.println("复制文件到剪切板成功");
+					System.out.println("Succeed to copy file to the clipboard.");
 				} else
-					System.out.println("对不起，文件名输入有�?");
+					System.out.println("Sorry, the file you input is wrong.");
 			} else if (s.equals("ptfile")) { // --->文件粘贴
 				if (filesave != null) {
 					ArrayList<MyDiskBlock> fileblocklist = filesave
@@ -277,18 +276,18 @@ public class MainTest {
 
 						nowdir.addFile(anoth);
 					} else
-						System.out.println("该目录下已经有同名文件，不能粘贴");
+						System.out.println("In this directory, there exists the file with the same name.");
 				}
 
 				else
-					System.out.println("剪切板中没有文件");
+					System.out.println("In the clipborad, there is no file.");
 			}
 
 			else if (s.startsWith("rendir") && s.length() > 7) { // --->目录重命名
 				String real = s.substring(7, s.length());
 				MyDir old = nowdir.getDir(real);
 				if (old != null) {
-					System.out.println("请输入新的目录名");
+					System.out.println("Please input the new direction");
 					String newname = br.readLine().trim();
 					if (nowdir.canPasteDir(new MyDir(newname))) { // 确认该目录下无同名目录
 						if (newname != "") {
@@ -296,15 +295,15 @@ public class MainTest {
 							MyDir thnew = old;
 							thnew.setName(newname);
 							nowdir.addDir(thnew);
-							System.out.println("目录重命名成�?!!!");
+							System.out.println("Succeed to rename?!!!");
 						} else {
-							System.out.println("文件名未输入");
+							System.out.println("The file name hasn't been input.");
 						}
 					} else
-						System.out.println("已经存在同名目录");
+						System.out.println("There exists the direction with the same name");
 
 				} else
-					System.out.println("对不起，不存在该目录");
+					System.out.println("Sorry, the direction doesn't exist.");
 
 			} else if (s.startsWith("rmdir") && s.length() > 6) { // 删除目录
 				String real = s.substring(6, s.length());
@@ -329,7 +328,7 @@ public class MainTest {
 					}
 					nowdir = save2;
 				} else
-					System.out.println("对不起，不存在该目录");
+					System.out.println("Sorry, the direction doesn't exist.");
 			}
 
 			else if (s.startsWith("mkdir") && s.length() > 6) { // 创建目录
@@ -343,9 +342,9 @@ public class MainTest {
 				if (a != null) {
 					dirsave=new MyDir();
 					dirsave = (MyDir) MyDir.cloneObject(a);
-					System.out.println("目录成功复制到剪切板");
+					System.out.println("Directory succeed to be copyed to the clipboard.");
 				} else
-					System.out.println("对不起，不存在该目录");
+					System.out.println("Sorry, the directory doesn't exist.");
 				
 			} else if (s.equals("ptdir")) { // 粘贴目录
 				if (dirsave != null) {
@@ -377,10 +376,10 @@ public class MainTest {
 						}
 						nowdir = save2;
 					} else
-						System.out.println("目录下已经有同名目录，无法粘�?");
+						System.out.println("In the directory, there exists the directory with the same name.");
 
 				} else
-					System.out.println("剪切板中没有目录");
+					System.out.println("In the clipboard, there is no direction.");
 				
 			} else if (s.equals("mem")) { // 显示磁盘使用情况
 				MyDisk.getInstance().showUsed();

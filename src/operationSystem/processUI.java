@@ -249,7 +249,7 @@ public class processUI extends JFrame implements ActionListener {
 	private JRadioButton FCFS = new JRadioButton("FCFS"); //1
 	private JRadioButton Pri = new JRadioButton("PRIORITY"); //1
 	private JRadioButton SJF = new JRadioButton("SJF");   //3
-//	private JRadioButton RR = new JRadioButton("RR");     //4
+	private JRadioButton RR = new JRadioButton("RR");//4
 	
 	public JPanel getButtonPane() {
 		if (buttonPane == null) {
@@ -262,7 +262,7 @@ public class processUI extends JFrame implements ActionListener {
 			b5.addActionListener(this);
 			FCFS.addActionListener(this);
 			SJF.addActionListener(this);
-//			RR.addActionListener(this);
+			RR.addActionListener(this);
 			Pri.addActionListener(this);
 			
 			buttonPane.setLayout(new GridLayout(12, 1));
@@ -270,7 +270,7 @@ public class processUI extends JFrame implements ActionListener {
 			buttonPane.add(FCFS);
 			buttonPane.add(Pri);
 			buttonPane.add(SJF);
-//			buttonPane.add(RR);
+			buttonPane.add(RR);
 			buttonPane.add(new JLabel(""));
 			buttonPane.add(b4);
 			buttonPane.add(b1);
@@ -285,7 +285,7 @@ public class processUI extends JFrame implements ActionListener {
 	        group.add(FCFS);
 	        group.add(Pri);
 	        group.add(SJF);
-//	        group.add(RR);
+	        group.add(RR);
 		}
 		return this.buttonPane;
 	}
@@ -415,8 +415,8 @@ public class processUI extends JFrame implements ActionListener {
 		}
 		//启动进程
 		else if (e.getSource() == b1) {
-			thread1.start();
-			thread2.start();
+			new Thread(thread1).start();
+			new Thread(thread2).start();
 		}
 		//中断进程
 		else if(e.getSource() == b5) {
@@ -430,7 +430,7 @@ public class processUI extends JFrame implements ActionListener {
 			runTimeText.setBounds(new java.awt.Rectangle(166, 105, 123, 23));
 			
 			intrDialog.setVisible(true);
-//			System.out.println("中断允许");
+//			System.out.println("Interrupt allowed.");
 //			thread1.stop = true;
 //			thread2.stop = true;
 //			try {
@@ -445,12 +445,12 @@ public class processUI extends JFrame implements ActionListener {
 //				// TODO Auto-generated catch block
 //				e1.printStackTrace();
 //			}
-//			Interupt sum= new Interupt();
-//			s = sum.Timer();
+//			//Interrupt sum= new Interrupt();
+//			//s = sum.Timer();
 //			thread1.stop = false;
 //			thread2.stop = false;
-//			System.out.println("中断处理结束"); 
-//			System.out.println("中断期间进行加法计算，计算结果为"+s); 
+//			System.out.println("Interrupt done.");
+			//System.out.println("中断期间进行加法计算，计算结果为"+s);
 			}
 		else if(e.getSource() == FCFS)
 		{
@@ -471,19 +471,21 @@ public class processUI extends JFrame implements ActionListener {
 //			thread1.setStrategy(strategy);
 //			thread2.setStrategy(strategy);
 		}
-//		else if(e.getSource() == RR)
-//		{
-//			strategy = 4;
-////			thread1.setStrategy(strategy);
-////			thread2.setStrategy(strategy);
-//		}
+		else if(e.getSource() == RR)
+		{
+			strategy = 4;
+//			thread1.setStrategy(strategy);
+//			thread2.setStrategy(strategy);
+		}
 		//确认，开始执行
 		else if (e.getSource() == confirm) {
 			String name = getNameText().getText();
 			//Integer prior = Integer.valueOf(getPriorityText().getSelectedItem().toString());
 			Integer runTime = Integer.valueOf(getRunTimeText().getText());
+
 			Interrupt thread3 = new Interrupt(getFrame(), runTime, name);
-			thread3.start();
+			new Thread(thread3).start();
+
 			intrDialog.setVisible(false);
 		}
 	}
@@ -555,7 +557,9 @@ public class processUI extends JFrame implements ActionListener {
 			confirm.addActionListener(new ActionListener(){
 				@Override
 				public void actionPerformed(ActionEvent e){
-
+					intrDialog.setVisible(false);
+					intrDialog.dispose();
+					//无法dispose.
 				}
 			});
 		}
@@ -570,7 +574,8 @@ public class processUI extends JFrame implements ActionListener {
 			cancel.addActionListener(new ActionListener() {
 				@Override
 				public void actionPerformed(ActionEvent e) {
-					//Intrpane.setVisible(false);
+					intrDialog.setVisible(false);
+					intrDialog.dispose();
 
 				}
 			});

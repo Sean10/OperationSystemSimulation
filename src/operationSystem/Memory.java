@@ -23,8 +23,8 @@ public class Memory {
 		
 		memPanel = new MemoryPanel(this);
 		//调用时间片线程刷新线程执行状态
-		refreshMem thread1 = new refreshMem(this);
-		thread1.start();
+		refreshMem threadRefresh = new refreshMem(this);
+		threadRefresh.start();
 
 		JPanel panel = new JPanel(new BorderLayout(7, 7));
 		panel.setBorder(BorderFactory.createEmptyBorder(7, 7, 7, 7));

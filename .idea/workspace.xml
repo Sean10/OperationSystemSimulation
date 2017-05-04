@@ -2,28 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b767ae1-f205-460e-bd01-1e212e77483a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/main.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/test/operationSystem/Memory$1.class" afterPath="$PROJECT_DIR$/out/production/test/operationSystem/Memory$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/test/operationSystem/Memory.class" afterPath="$PROJECT_DIR$/out/production/test/operationSystem/Memory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/test/operationSystem/MemoryModel.class" afterPath="$PROJECT_DIR$/out/production/test/operationSystem/MemoryModel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/test/operationSystem/MemoryPanel$BackgroundPanel.class" afterPath="$PROJECT_DIR$/out/production/test/operationSystem/MemoryPanel$BackgroundPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/test/operationSystem/MemoryPanel.class" afterPath="$PROJECT_DIR$/out/production/test/operationSystem/MemoryPanel.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/test/operationSystem/MemoryPartition.class" afterPath="$PROJECT_DIR$/out/production/test/operationSystem/MemoryPartition.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/test/operationSystem/MyDir.class" afterPath="$PROJECT_DIR$/out/production/test/operationSystem/MyDir.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/test/operationSystem/processUI.class" afterPath="$PROJECT_DIR$/out/production/test/operationSystem/processUI.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/test/operationSystem/processUI.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/Interrupt.java" afterPath="$PROJECT_DIR$/src/operationSystem/Interrupt.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/MainTest.java" afterPath="$PROJECT_DIR$/src/operationSystem/MainTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/MainUI.java" afterPath="$PROJECT_DIR$/src/operationSystem/MainUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/Memory.java" afterPath="$PROJECT_DIR$/src/operationSystem/Memory.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/MemoryModel.java" afterPath="$PROJECT_DIR$/src/operationSystem/MemoryModel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/MemoryPanel.java" afterPath="$PROJECT_DIR$/src/operationSystem/MemoryPanel.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/MemoryPartition.java" afterPath="$PROJECT_DIR$/src/operationSystem/MemoryPartition.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/MyDir.java" afterPath="$PROJECT_DIR$/src/operationSystem/MyDir.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/MyDisk.java" afterPath="$PROJECT_DIR$/src/operationSystem/MyDisk.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/PCB.java" afterPath="$PROJECT_DIR$/src/operationSystem/PCB.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/Schedule.java" afterPath="$PROJECT_DIR$/src/operationSystem/Schedule.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/Show.java" afterPath="$PROJECT_DIR$/src/operationSystem/Show.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/Sort.java" afterPath="$PROJECT_DIR$/src/operationSystem/Sort.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/TimeSlice.java" afterPath="$PROJECT_DIR$/src/operationSystem/TimeSlice.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/operationSystem/processUI.java" afterPath="$PROJECT_DIR$/src/operationSystem/processUI.java" />
     </list>
@@ -41,60 +24,69 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="processUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/operationSystem/processUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3875">
-              <caret line="451" column="40" lean-forward="false" selection-start-line="451" selection-start-column="40" selection-end-line="451" selection-end-column="40" />
-              <folding>
-                <element signature="e#0#16686#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MainTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/operationSystem/MainTest.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="49" column="35" lean-forward="true" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#521#529#0" expanded="true" />
-                <element signature="e#1997#2006#0" expanded="true" />
-                <element signature="e#3671#3680#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Interrupt.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/operationSystem/Interrupt.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="675">
-              <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="refreshMem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/operationSystem/refreshMem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MemoryModel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/operationSystem/MemoryModel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
+            <state relative-caret-position="338">
+              <caret line="77" column="41" lean-forward="true" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="processUI.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/operationSystem/processUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-30">
+              <caret line="523" column="45" lean-forward="false" selection-start-line="523" selection-start-column="45" selection-end-line="523" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#16832#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemoryPartition.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/operationSystem/MemoryPartition.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="33" column="18" lean-forward="false" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Sort.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/operationSystem/Sort.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="25">
+              <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Schedule.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/operationSystem/Schedule.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="279">
+              <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TimeSlice.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/operationSystem/TimeSlice.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="74" column="49" lean-forward="true" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -102,8 +94,8 @@
       <file leaf-file-name="Show.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/operationSystem/Show.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="235" column="30" lean-forward="false" selection-start-line="235" selection-start-column="30" selection-end-line="235" selection-end-column="30" />
+            <state relative-caret-position="76">
+              <caret line="79" column="19" lean-forward="false" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
               <folding>
                 <element signature="e#0#6127#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -113,11 +105,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TimeSlice.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/operationSystem/TimeSlice.java">
+      <file leaf-file-name="MainTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/operationSystem/MainTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="31" column="86" lean-forward="false" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
+            <state relative-caret-position="270">
+              <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#521#529#0" expanded="true" />
+                <element signature="e#2017#2026#0" expanded="true" />
+                <element signature="e#3690#3699#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Interrupt.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/operationSystem/Interrupt.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="518">
+              <caret line="67" column="48" lean-forward="true" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -125,12 +132,15 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Schedule.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/operationSystem/Schedule.java">
+      <file leaf-file-name="MemoryPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/operationSystem/MemoryPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-              <folding />
+            <state relative-caret-position="120">
+              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="55" selection-end-column="8" />
+              <folding>
+                <element signature="e#0#4044#0" expanded="true" />
+                <element signature="e#2232#2249#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -139,7 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>caozuoxitong</find>
       <find>jinchen</find>
       <find>jincheng</find>
       <find>ls</find>
@@ -168,6 +177,8 @@
       <find>timeslice</find>
       <find>iterator</find>
       <find>addfile</find>
+      <find>thread time</find>
+      <find>stop</find>
     </findStrings>
     <replaceStrings>
       <replace>process</replace>
@@ -199,7 +210,6 @@
         <option value="$PROJECT_DIR$/src/operationSystem/AllUser.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/BubbleSort.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/fileUI.java" />
-        <option value="$PROJECT_DIR$/src/operationSystem/Interrupt.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/refreshMem.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/MyDiskBlock.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/MyFile.java" />
@@ -212,12 +222,13 @@
         <option value="$PROJECT_DIR$/src/operationSystem/Show.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/Sort.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/MemoryPanel.java" />
-        <option value="$PROJECT_DIR$/src/operationSystem/Schedule.java" />
-        <option value="$PROJECT_DIR$/src/operationSystem/Memory.java" />
-        <option value="$PROJECT_DIR$/src/operationSystem/MainTest.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/MainUI.java" />
+        <option value="$PROJECT_DIR$/src/operationSystem/Memory.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/processUI.java" />
         <option value="$PROJECT_DIR$/src/operationSystem/TimeSlice.java" />
+        <option value="$PROJECT_DIR$/src/operationSystem/MainTest.java" />
+        <option value="$PROJECT_DIR$/src/operationSystem/Interrupt.java" />
+        <option value="$PROJECT_DIR$/src/operationSystem/Schedule.java" />
       </list>
     </option>
   </component>
@@ -916,12 +927,12 @@
       <workItem from="1493267847825" duration="17391000" />
       <workItem from="1493383091847" duration="15250000" />
       <workItem from="1493735319395" duration="5659000" />
-      <workItem from="1493790438266" duration="18352000" />
+      <workItem from="1493790438266" duration="24431000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63694000" />
+    <option name="totallyTimeSpent" value="69773000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="6" />
@@ -930,7 +941,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32909784" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674093" sideWeight="0.50277776" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -946,10 +957,10 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32942554" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18888889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674093" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18888889" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25674093" sideWeight="0.49722221" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -999,19 +1010,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/operationSystem/PCB.java</url>
-          <line>50</line>
-          <properties />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/operationSystem/PCB.java</url>
-          <line>43</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
@@ -1101,22 +1099,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="548" column="6" lean-forward="true" selection-start-line="548" selection-start-column="6" selection-end-line="548" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/awt/Window.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="3237" column="16" lean-forward="false" selection-start-line="3237" selection-start-column="16" selection-end-line="3237" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/javax/swing/table/DefaultTableModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
@@ -1135,17 +1117,6 @@
           <folding>
             <element signature="e#144207#144208#0" expanded="false" />
             <element signature="e#144239#144240#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12300">
-          <caret line="891" column="15" lean-forward="false" selection-start-line="891" selection-start-column="15" selection-end-line="891" selection-end-column="15" />
-          <folding>
-            <element signature="e#33891#33892#0" expanded="false" />
-            <element signature="e#33919#33920#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1250,34 +1221,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/Addprocessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="153" column="44" lean-forward="true" selection-start-line="153" selection-start-column="44" selection-end-line="153" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#5628#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/PCB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="25" column="28" lean-forward="false" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#932#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/Sort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="18" column="40" lean-forward="true" selection-start-line="18" selection-start-column="40" selection-end-line="18" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Throwable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -1285,45 +1228,6 @@
           <folding>
             <element signature="e#26222#26223#0" expanded="false" />
             <element signature="e#26265#26266#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/MainUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="39" column="27" lean-forward="true" selection-start-line="39" selection-start-column="27" selection-end-line="39" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#1945#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/Memory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="34" column="31" lean-forward="true" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/MemoryPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="76" column="21" lean-forward="false" selection-start-line="76" selection-start-column="21" selection-end-line="76" selection-end-column="21" />
-          <folding>
-            <element signature="e#0#4044#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/MemoryPartition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
-          <folding>
-            <element signature="e#514#515#0" expanded="false" />
-            <element signature="e#541#542#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1341,17 +1245,9 @@
         <state relative-caret-position="-45">
           <caret line="18" column="27" lean-forward="true" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
           <folding>
-            <element signature="e#389#390#0" expanded="true" />
-            <element signature="e#410#411#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="false" />
+            <element signature="e#410#411#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/MyDir.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="240" column="41" lean-forward="false" selection-start-line="240" selection-start-column="41" selection-end-line="240" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1363,71 +1259,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/MemoryModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/refreshMem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="22" column="21" lean-forward="true" selection-start-line="22" selection-start-column="21" selection-end-line="22" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/Show.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="235" column="30" lean-forward="false" selection-start-line="235" selection-start-column="30" selection-end-line="235" selection-end-column="30" />
-          <folding>
-            <element signature="e#0#6127#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#378#386#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/operationSystem/thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="17" column="38" lean-forward="true" selection-start-line="17" selection-start-column="38" selection-end-line="17" selection-end-column="38" />
           <folding>
-            <element signature="e#418#419#0" expanded="true" />
-            <element signature="e#455#456#0" expanded="true" />
+            <element signature="e#418#419#0" expanded="false" />
+            <element signature="e#455#456#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/MainTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="49" column="35" lean-forward="true" selection-start-line="49" selection-start-column="35" selection-end-line="49" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#521#529#0" expanded="true" />
-            <element signature="e#1997#2006#0" expanded="true" />
-            <element signature="e#3671#3680#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/Interrupt.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="66" column="34" lean-forward="true" selection-start-line="66" selection-start-column="34" selection-end-line="66" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="300" column="30" lean-forward="false" selection-start-line="300" selection-start-column="30" selection-end-line="300" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1439,12 +1278,182 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/processUI.java">
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3875">
-          <caret line="451" column="40" lean-forward="false" selection-start-line="451" selection-start-column="40" selection-end-line="451" selection-end-column="40" />
+        <state relative-caret-position="301">
+          <caret line="752" column="25" lean-forward="true" selection-start-line="752" selection-start-column="25" selection-end-line="752" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="306" column="12" lean-forward="false" selection-start-line="306" selection-start-column="12" selection-end-line="306" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/MainUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="81" column="27" lean-forward="false" selection-start-line="81" selection-start-column="27" selection-end-line="81" selection-end-column="27" />
           <folding>
-            <element signature="e#0#16686#0" expanded="true" />
+            <element signature="e#0#1945#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/Addprocessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2051">
+          <caret line="156" column="56" lean-forward="false" selection-start-line="156" selection-start-column="56" selection-end-line="156" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/awt/Window.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="1453" column="0" lean-forward="false" selection-start-line="1453" selection-start-column="0" selection-end-line="1453" selection-end-column="0" />
+          <folding>
+            <element signature="e#52173#52174#0" expanded="true" />
+            <element signature="e#52216#52217#0" expanded="true" />
+            <element signature="e#52253#52254#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/refreshMem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="15" column="11" lean-forward="false" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/PCB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="31" column="25" lean-forward="true" selection-start-line="31" selection-start-column="25" selection-end-line="31" selection-end-column="25" />
+          <folding>
+            <element signature="e#0#932#0" expanded="true" />
+            <element signature="e#707#708#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#758#759#0" expanded="true" />
+            <element signature="e#780#781#0" expanded="true" />
+            <element signature="e#812#813#0" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#883#884#0" expanded="true" />
+            <element signature="e#909#910#0" expanded="true" />
+            <element signature="e#925#926#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/Memory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="36" column="47" lean-forward="true" selection-start-line="36" selection-start-column="47" selection-end-line="36" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="891" column="15" lean-forward="false" selection-start-line="891" selection-start-column="15" selection-end-line="891" selection-end-column="15" />
+          <folding>
+            <element signature="e#33891#33892#0" expanded="true" />
+            <element signature="e#33919#33920#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/MyDir.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="47" column="32" lean-forward="false" selection-start-line="47" selection-start-column="32" selection-end-line="47" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/MemoryPartition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="33" column="18" lean-forward="false" selection-start-line="33" selection-start-column="18" selection-end-line="33" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/MainTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="8" lean-forward="true" selection-start-line="18" selection-start-column="8" selection-end-line="18" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#521#529#0" expanded="true" />
+            <element signature="e#2017#2026#0" expanded="true" />
+            <element signature="e#3690#3699#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/MemoryPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="55" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#4044#0" expanded="true" />
+            <element signature="e#2232#2249#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/Interrupt.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="518">
+          <caret line="67" column="48" lean-forward="true" selection-start-line="67" selection-start-column="48" selection-end-line="67" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/MemoryModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="77" column="41" lean-forward="true" selection-start-line="77" selection-start-column="41" selection-end-line="77" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/Show.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="79" column="19" lean-forward="false" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
+          <folding>
+            <element signature="e#0#6127#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#378#386#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/Sort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="50" column="24" lean-forward="true" selection-start-line="50" selection-start-column="24" selection-end-line="50" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/TimeSlice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="74" column="49" lean-forward="true" selection-start-line="74" selection-start-column="49" selection-end-line="74" selection-end-column="49" />
+          <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
@@ -1452,17 +1461,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/operationSystem/Schedule.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="46" column="47" lean-forward="true" selection-start-line="46" selection-start-column="47" selection-end-line="46" selection-end-column="47" />
-          <folding />
+        <state relative-caret-position="279">
+          <caret line="64" column="22" lean-forward="true" selection-start-line="64" selection-start-column="22" selection-end-line="64" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/operationSystem/TimeSlice.java">
+    <entry file="file://$PROJECT_DIR$/src/operationSystem/processUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="31" column="86" lean-forward="false" selection-start-line="31" selection-start-column="86" selection-end-line="31" selection-end-column="86" />
+        <state relative-caret-position="-30">
+          <caret line="523" column="45" lean-forward="false" selection-start-line="523" selection-start-column="45" selection-end-line="523" selection-end-column="45" />
           <folding>
+            <element signature="e#0#16832#0" expanded="true" />
             <element signature="imports" expanded="true" />
           </folding>
         </state>

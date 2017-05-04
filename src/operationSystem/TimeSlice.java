@@ -1,10 +1,12 @@
 package operationSystem;
 
+import java.awt.*;
 import java.awt.print.PrinterException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Vector;
+import java.lang.Runnable;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -18,7 +20,7 @@ public class TimeSlice extends Thread {
 	private int strategy;
 	private Show showing;
 	private MemoryModel memorymodel;
-	
+	private int ls = 0;
 	
 	char c = new Character((char) Character.LINE_SEPARATOR).charValue();
 	public TimeSlice(processUI frm, int strategy, Show showing, MemoryModel memorymodel) {
@@ -31,26 +33,26 @@ public class TimeSlice extends Thread {
 		while (!stop) {
 			DefaultTableModel rundft = (DefaultTableModel) getFrm().getRunTable().getModel();
 			Vector v = rundft.getDataVector();
-			Iterator it1 = v.iterator();
+//			Iterator it1 = v.iterator();
+//			Object temp_v = it1.next() ;
 
-			while (it1.hasNext()) {
-				Vector tmp1 = (Vector) it1.next();
-//				tmp1.setElementAt("Running", 4);
-				//System.out.println(sf.format(new Date())
-						//+ "低级调度--就绪队列中优先权高的进程" + tmp1.elementAt(0) + ","
-						//+ tmp1.elementAt(1) + "进入cpu");
-//				getFrm().getRunInfo().append(
-//						new Character((char) 13) + sf.format(new Date())
-//								+ "Ready " + tmp1.elementAt(0)
-//								+ "," + tmp1.elementAt(1) + " enter cpu\n");
-			}
+			System.out.println("Thread TimeSlice"+ls++);
+//			while (it1.hasNext()) {
+//				Vector tmp1 = (Vector) it1.next();
+////				tmp1.setElementAt("Running", 4);
+//				//System.out.println(sf.format(new Date())
+//						//+ "低级调度--就绪队列中优先权高的进程" + tmp1.elementAt(0) + ","
+//						//+ tmp1.elementAt(1) + "进入cpu");
+////				getFrm().getRunInfo().append(
+////						new Character((char) 13) + sf.format(new Date())
+////								+ "Ready " + tmp1.elementAt(0)
+////								+ "," + tmp1.elementAt(1) + " enter cpu\n");
+//			}
 			try {
 				sleep(1000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			
-			Object temp_v = v.elementAt(0) ;
 
 
 			getFrm().repaint();
@@ -60,10 +62,11 @@ public class TimeSlice extends Thread {
 			{
 				Vector tmp = (Vector)v.elementAt(p);
 				//time越小，优先级越高
-				int time = (int)tmp.elementAt(3);
+				int time = Integer.parseInt(tmp.elementAt(3).toString());
 				//这里可以设置非优先级最高的暂停减小
 				//if(it1.equals(temp_v)) {
-					time = ((Integer) tmp.elementAt(3)).intValue() - slice;
+					time = Integer.parseInt(tmp.elementAt(3).toString()) - slice;
+					//time = ((Integer) tmp.elementAt(3)).intValue() - slice;
 				//}
 				tmp.setElementAt(new Integer(time), 3);
 
