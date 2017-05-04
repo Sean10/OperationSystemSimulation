@@ -73,7 +73,7 @@ public class processUI extends JFrame implements ActionListener {
 	public JScrollPane getInfoScroll(){
 		if(infoScroll == null){
 			infoScroll = new JScrollPane(getRunInfo());
-			infoScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+			//infoScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
 		}
 		return infoScroll;
@@ -176,7 +176,7 @@ public class processUI extends JFrame implements ActionListener {
 			preparedTable.setModel(getDefaultTableModelr());
 			preparedTable.setPreferredScrollableViewportSize(d);
 			preparedTable.getColumnModel().getColumn(0).setPreferredWidth(140);
-			preparedTable.getTableHeader().setReorderingAllowed(false);
+			preparedTable.getTableHeader().setReorderingAllowed(true);
 		}
 		return preparedTable;
 	}
@@ -415,7 +415,7 @@ public class processUI extends JFrame implements ActionListener {
 		}
 		//启动进程
 		else if (e.getSource() == b1) {
-			thread1.start();		
+			thread1.start();
 			thread2.start();
 		}
 		//中断进程

@@ -10,10 +10,11 @@ public class Sort {
 		for (int i = 0; i < v.size(); i++) {
 			// 每轮要比较的次数
 			for (int j = 0; j < v.size() - i - 1; j++) {
-				Integer first = (Integer) ((Vector) v.elementAt(j))
-						.elementAt(2);
-				Integer second = (Integer) ((Vector) v.elementAt(j + 1))
-						.elementAt(2);
+				//获取对应的优先级
+				Integer first = Integer.parseInt(((Vector) v.elementAt(j))
+						.elementAt(2).toString());
+				Integer second = Integer.parseInt(((Vector) v.elementAt(j + 1))
+						.elementAt(2).toString());
 				if (first.intValue() < second.intValue()) {
 					temp = (Vector) v.elementAt(j);
 					v.setElementAt(v.elementAt(j + 1), j);
@@ -30,10 +31,10 @@ public class Sort {
 		for (int i = 0; i < v.size(); i++) {
 			// 每轮要比较的次数
 			for (int j = 0; j < v.size() - i - 1; j++) {
-				Integer first = (Integer) ((Vector) v.elementAt(j))
-						.elementAt(3);
-				Integer second = (Integer) ((Vector) v.elementAt(j + 1))
-						.elementAt(3);
+				Integer first = Integer.parseInt (((Vector) v.elementAt(j))
+						.elementAt(3).toString());
+				Integer second = Integer.parseInt (((Vector) v.elementAt(j + 1))
+						.elementAt(3).toString());
 				if (first.intValue() > second.intValue()) {
 					temp = (Vector) v.elementAt(j);
 					v.setElementAt(v.elementAt(j + 1), j);

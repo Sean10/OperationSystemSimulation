@@ -25,10 +25,11 @@ public class MemoryModel {
 	
 	private List<MemoryPartition> free = new ArrayList<MemoryPartition> ();
 	private List<MemoryPartition> used = new ArrayList<MemoryPartition> ();
-	
+
+	//在构造时运行
 	{
 		free.add(new MemoryPartition(0, MAX * K, "free", "free"));
-		System.out.println("only you~~~~~~~~~~~~~~~~~~~~~~");
+		System.out.println("test memoryPartition");
 	}
 	
 	

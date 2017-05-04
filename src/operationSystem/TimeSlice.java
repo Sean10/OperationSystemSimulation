@@ -32,11 +32,12 @@ public class TimeSlice extends Thread {
 			DefaultTableModel rundft = (DefaultTableModel) getFrm().getRunTable().getModel();
 			Vector v = rundft.getDataVector();
 			Iterator it1 = v.iterator();
+
 			while (it1.hasNext()) {
 				Vector tmp1 = (Vector) it1.next();
 //				tmp1.setElementAt("Running", 4);
 				//System.out.println(sf.format(new Date())
-						//+ "低级调度--就绪队列中优先权�?高的进程" + tmp1.elementAt(0) + ","
+						//+ "低级调度--就绪队列中优先权高的进程" + tmp1.elementAt(0) + ","
 						//+ tmp1.elementAt(1) + "进入cpu");
 //				getFrm().getRunInfo().append(
 //						new Character((char) 13) + sf.format(new Date())
@@ -49,17 +50,23 @@ public class TimeSlice extends Thread {
 				e.printStackTrace();
 			}
 			
-			
+			Object temp_v = v.elementAt(0) ;
+
+
 			getFrm().repaint();
-			it1 = v.iterator();
+//			it1 = v.iterator();
 			int vsize = v.size();
 			for(int p = vsize-1; p >= 0; p--)
 			{
 				Vector tmp = (Vector)v.elementAt(p);
 				//time越小，优先级越高
 				int time = (int)tmp.elementAt(3);
-				time = ((Integer) tmp.elementAt(3)).intValue() - slice;
+				//这里可以设置非优先级最高的暂停减小
+				//if(it1.equals(temp_v)) {
+					time = ((Integer) tmp.elementAt(3)).intValue() - slice;
+				//}
 				tmp.setElementAt(new Integer(time), 3);
+
 				if(time <= 0)
 				{
 					getFrm().getRunInfo().append(

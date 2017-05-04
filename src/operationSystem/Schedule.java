@@ -12,7 +12,7 @@ public class Schedule extends Thread {
 
 	volatile boolean stop = false;
 	private processUI frm;
-	private static final int daoshu = 3; //道数
+	//private static final int daoshu = 3; //道数
 	private static final SimpleDateFormat sf = new SimpleDateFormat(
 			"HH:mm:ss ");
 	private int strategy = 1;
@@ -39,6 +39,7 @@ public class Schedule extends Thread {
 			if (getFrm().getPreparedTable().getRowCount() > 0 && 
 			    getFrm().getRunTable().getRowCount() < 3) 
 			{
+				//
 				DefaultTableModel dft = (DefaultTableModel) getFrm()
 						.getPreparedTable().getModel();
 				DefaultTableModel rundft = (DefaultTableModel) getFrm()
@@ -59,8 +60,6 @@ public class Schedule extends Thread {
 					String processName = (String)(((Vector)v.elementAt(0)).elementAt(1));
 					//
 					boolean MemOK = memorymodel.addProcess(processName, memuse);
-
-					
 
 //					System.out.println(MemOK+"!!!"+processName+" "+memuse);
 					if(MemOK)

@@ -22,8 +22,10 @@ public class Memory {
 	public Memory () {
 		
 		memPanel = new MemoryPanel(this);
+		//调用时间片线程刷新线程执行状态
 		refreshMem thread1 = new refreshMem(this);
 		thread1.start();
+
 		JPanel panel = new JPanel(new BorderLayout(7, 7));
 		panel.setBorder(BorderFactory.createEmptyBorder(7, 7, 7, 7));
 		panel.add(createContentPanel(), BorderLayout.CENTER);
@@ -33,11 +35,10 @@ public class Memory {
 		frame.setVisible(true);
 		frame.setLocation(780, 250);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		
-		
+
 	}
 
-	//监听，
+	//监听原内存管理按钮操作功能
 	ActionListener al = new ActionListener() {
 		public void actionPerformed(ActionEvent ae) {
 			layout.show(ContentPanel, ae.getActionCommand());

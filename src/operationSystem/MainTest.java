@@ -6,11 +6,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Stack;
 
-import operationSystem.AllUser;
-import operationSystem.MyDir;
-import operationSystem.MyDisk;
-import operationSystem.MyDiskBlock;
-import operationSystem.MyFile;
 
 public class MainTest {
 	    MainTest(String username) throws IOException{
@@ -40,15 +35,15 @@ public class MainTest {
 
 			if (s.equals("ls")) // --->目录显示
 				nowdir.ls();
-			else if (s.startsWith("cd") && !s.equals("cd ..")) { // --->跳转到指定目�?
-				String real = s.substring(3, s.length()-1);//读取文件名，要除去首尾两个中括号
+			else if (s.startsWith("cd") && !s.equals("cd ..")) { // --->跳转到指定目录
+				String real = s.substring(3, s.length());//读取文件名，要除去首尾两个中括号
 				MyDir a = nowdir.cd(real);
 				if (a != null) {//更改当前目录，并记录下父目录
 					MyDir b = nowdir;
 					nowdir = a;
 					nowdir.setFatherDir(b);
 				} else
-					System.out.println("您输入的目录名有误，请重新输�?");
+					System.out.println("The directory you input is wrong, please input again.");
 
 			} else if (s.equals("cd ..")) { // --->跳转到上层目录
 				if (nowdir.cdReturn() != null)
@@ -57,11 +52,11 @@ public class MainTest {
 					System.out.println("已经到根目录");//如果没有父目录，则已经是根目录
 
 			}else if (s.startsWith("vim") && s.length() > 4) { // --->创建文件
-				String real = s.substring(4, s.length()-1);//读取文件名，要除去首尾两个中括号
+				String real = s.substring(4, s.length());//读取文件名，要除去首尾两个中括号
 				nowdir.addFile(new MyFile(real, 0, 0));//调用addFile
 
-			} else if (s.startsWith("rm") && s.length() > 7) { // --->删除文件
-				String real = s.substring(7, s.length()-1);//读取文件名，要除去首尾两个中括号「这里似乎不该-1」，待测试
+			} else if (s.startsWith("rmfile") && s.length() > 7) { // --->删除文件
+				String real = s.substring(7, s.length());//读取文件名，要除去首尾两个中括号「这里似乎不该-1」，待测试
 				MyFile a = nowdir.getFile(real);//看是否有重名的文件
 				if (a != null) {
 					ArrayList<MyDiskBlock> blocklist = a.getBlocklist();//得到该文件的属性所用的磁盘块
@@ -86,8 +81,8 @@ public class MainTest {
 					System.out.println("Succeed to delete.");
 				} else
 					System.out.println("Sorry, the file doesn't exist.");
-			} else if (s.startsWith("mvfile") && s.length() > 8) { // --->文件重命名
-				String real = s.substring(8, s.length()-1);//读取文件名，要除去首尾两个中括号
+			} else if (s.startsWith("mvfile") && s.length() > 7) { // --->文件重命名
+				String real = s.substring(7, s.length());//读取文件名，要除去首尾两个中括号
 				MyFile a = nowdir.getFile(real);
 				if (a != null) {
 					System.out.println("Please input new file name");
@@ -126,7 +121,6 @@ public class MainTest {
 					//先把磁盘块记录都删了
 					while (nowdir.getFatherDir() != null) // 循环更新父目录磁盘块，直至根目录
 					{
-
 						nowdir.removeold(oldused);
 						nowdir.updateSize();
 						nowdir = nowdir.getFatherDir();
@@ -195,8 +189,8 @@ public class MainTest {
 				} else
 					System.out.println("Sorry, something wrong happened when editing.");
 
-			} else if (s.startsWith("cat") && s.length() > 5) { // 显示文件内容
-				String filename = s.substring(5, s.length()-1);//读取文件名，要除去首尾两个中括号
+			} else if (s.startsWith("cat") && s.length() > 4) { // 显示文件内容
+				String filename = s.substring(4, s.length());//读取文件名，要除去首尾两个中括号
 				MyFile a = nowdir.getFile(filename);
 				if (a != null) {
 					ArrayList<MyDiskBlock> list = a.getBlocklist();
@@ -211,7 +205,7 @@ public class MainTest {
 					System.out.println("文件名称输入有误");
 
 			} else if (s.startsWith("cpfile") && s.length() > 7) { // --->文件复制
-				String real = s.substring(7, s.length()-1);//读取文件名，要除去首尾两个中括号
+				String real = s.substring(7, s.length());//读取文件名，要除去首尾两个中括号
 				MyFile a = nowdir.getFile(real);
 				if (a != null) {
 					filesave=new MyFile();
@@ -291,7 +285,7 @@ public class MainTest {
 			}
 
 			else if (s.startsWith("rendir") && s.length() > 7) { // --->目录重命名
-				String real = s.substring(7, s.length()-1);
+				String real = s.substring(7, s.length());
 				MyDir old = nowdir.getDir(real);
 				if (old != null) {
 					System.out.println("请输入新的目录名");
@@ -313,7 +307,7 @@ public class MainTest {
 					System.out.println("对不起，不存在该目录");
 
 			} else if (s.startsWith("rmdir") && s.length() > 6) { // 删除目录
-				String real = s.substring(6, s.length()-1);
+				String real = s.substring(6, s.length());
 				MyDir old = nowdir.getDir(real);
 				if (old != null) {
 					ArrayList<Integer> all = new ArrayList<Integer>();
@@ -339,12 +333,12 @@ public class MainTest {
 			}
 
 			else if (s.startsWith("mkdir") && s.length() > 6) { // 创建目录
-				String dirname = s.substring(6, s.length()-1);
+				String dirname = s.substring(6, s.length());
 				MyDir dir = new MyDir(dirname, 0, 0);
 				nowdir.addDir(dir);
 
 			} else if (s.startsWith("cpdir") && s.length() > 6) { // 复制目录
-				String real = s.substring(6, s.length()-1);
+				String real = s.substring(6, s.length());
 				MyDir a = nowdir.getDir(real);
 				if (a != null) {
 					dirsave=new MyDir();
@@ -407,7 +401,7 @@ public class MainTest {
 				System.out
 						.println("vim [filename]:create new file       ptfile:paste file       cpfile [filename]:copy file ");
 				System.out
-						.println("mvfile [filename]:rename file           rm [filename]:delete file       cat [filename]:show file");
+						.println("mvfile [filename]:rename file           rmfile [filename]:delete file       cat [filename]:show file");
 				System.out.println("open :open file");
 				System.out
 						.println("---------------------------Below is the disk operation--------------------------------");

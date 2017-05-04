@@ -28,7 +28,10 @@ public class MainUI extends JFrame implements ActionListener{
 	public MainUI()
 	{
 		setTitle("Main UI");
+		//JFrame host = new JFrame();
 		JPanel J=(JPanel)this.getContentPane();
+		//host.getContentPane().add(J);
+
 		//初始化主UI容器,获取内容面板
 		getContentPane();
 		setSize(320, 568);
@@ -46,11 +49,13 @@ public class MainUI extends JFrame implements ActionListener{
 	 	this.getLayeredPane().add(label, new Integer(Integer.MIN_VALUE));  
 	 	
 	 	process.setBounds(110, 135, 100, 30);
-	 	add(process);
+	 	//host.getContentPane().add(process);
+		add(process);
 //	 	memory.setBounds(80, 170, 100, 30);
 //	 	add(memory);
 	 	file.setBounds(110, 195, 100, 30);
-	 	add(file);
+	 	//host.getContentPane().add(file);
+		add(file);
 
 	 	//设置监听
 	 	process.addActionListener(this);
@@ -58,9 +63,7 @@ public class MainUI extends JFrame implements ActionListener{
 		file.addActionListener(this);
 	 	
 	 	this.setVisible(true);
-	    
-	    
-		
+
 	}
 
 	//构造函数

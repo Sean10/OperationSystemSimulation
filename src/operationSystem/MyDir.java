@@ -75,7 +75,7 @@ public class MyDir implements Serializable{
      * @param a
      * @return
      */
-    public boolean canPasteFile(MyFile a){//如果含该文件，则返回true的非，即false；如果不含，则返回false
+    public boolean canPasteFile(MyFile a){//如果含该文件，则返回true的非，即false；如果不含，则返回false的非
     	return !filelist.containsKey(a.getName());
     }
     
@@ -284,13 +284,12 @@ public class MyDir implements Serializable{
 		String file = "";
 		while (a.hasNext()) {
 			MyFile inst = filelist.get(a.next());
-			file += "文件:"+ inst.getName() + "\n";
+			file += "File:"+ inst.getName() + "\n";
 			//System.out.print(inst.getName());
 			count++;
 		}
 		if (count == 0)
 			JOptionPane.showMessageDialog(null, "Sorry! No file under this dir!", "alert", JOptionPane.ERROR_MESSAGE);
-			//System.out.println("对不起，当前目录下并无文�?");
 		else{
 			//System.out.println(file);
 			frame.setTitle("dosi");

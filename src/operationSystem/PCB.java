@@ -15,7 +15,7 @@ public class PCB {
 	private Integer memuse;
 
 
-	//构造函数，狗脏进程块
+	//构造函数，构造进程块
 	public PCB(String name, String operation, String file) {
 		super();
 		int a = (int) (Math.random() * 1000 / 1);

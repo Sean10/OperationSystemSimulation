@@ -134,6 +134,7 @@ public class MemoryPartition implements Comparable<MemoryPartition> {
 	}
 
 	public MemoryPartition[] allocate(long size) {
+		//
 		if (this.capacity == size) {
 			return new MemoryPartition [] {this, null};
 		}

@@ -18,6 +18,7 @@ import javax.swing.JTextArea;
 public class Show {
 
 	private MyDir nowdir = new MyDir("show");
+	//存储线程表的动态数组
 	private ArrayList<thread> threadCame = new ArrayList<thread>();
 	private MemoryModel mm = new MemoryModel();
 	private JFrame frameT = new JFrame();
@@ -34,8 +35,6 @@ public class Show {
 		//String content2 = "hi! i am file2. i am a test file, too! how are you? it is cold in Beijing.";
 		//result = nowdir.requestDiskBlock(mm, "file2",content2);
 		//nowdir.addFile(new MyFile("file2", 0, 0));//调用addFile
-		
-		
 	}
 
 	//线程状态判断函数
@@ -88,11 +87,14 @@ public class Show {
 				String fn = temp.getFilename();
 				switch(op){
 				case "cat":
+					//查看文件
 					view(mm, fn);
 					return true;
 				case "ls":
+					//打开一个ls窗口展示根目录文件
 					showAll();
 					return true;
+					//打开一个窗口显示内容
 				case "touch":
 					touch(mm,fn);
 					return true;
@@ -171,6 +173,7 @@ public class Show {
 	public void view(MemoryModel mm,String filename){
 		MyFile a = nowdir.getFile(filename);
 		if(a!=null){
+			//调用mydir内的获取内容函数
 			String output = nowdir.requestView(mm, filename);
 			frameT.setTitle(filename);
 			frameT.getContentPane().add(ContentPanel);
@@ -204,7 +207,7 @@ public class Show {
 		nowdir.closeLs();
 	}
 
-	//更新文件修改时间
+	//显示文件内容
 	public void touch(MemoryModel mm,String filename){
 		MyFile a = nowdir.getFile(filename);
 		if(a!=null){
@@ -225,10 +228,11 @@ public class Show {
 			JOptionPane.showMessageDialog(null, "Sorry! The file doesn't exit!", "alert", JOptionPane.ERROR_MESSAGE); 
 	}
 
-	//界面更新文件操作
+	//更新文件修改时间
 	public void touchEnd(String filename){
 		String m = jta.getText();
 		boolean result;
+		//调用memorymodel中的更新文件修改时间函数
 		result = mm.requesttouch(filename,m);
 		if(result == false)
 			JOptionPane.showMessageDialog(null, " Sorry! Failed! ", "alert", JOptionPane.ERROR_MESSAGE); 

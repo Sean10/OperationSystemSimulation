@@ -16,16 +16,21 @@ import java.util.List;
 
 public class MemoryPanel implements ActionListener{
 	Memory mem;
-	BackgroundPanel panel = new BackgroundPanel((new ImageIcon("graphics\\images.jpg")).getImage());
+	//内存管理背景图
+	BackgroundPanel panel = new BackgroundPanel((new ImageIcon("images.jpg")).getImage());
 	//JPanel panel = new JPanel(new BorderLayout());
+	//暂时关闭显示这四个按钮
 	JButton refresh = new JButton("refresh"), 
 			allocate = new JButton("allocate"), 
 			free = new JButton("free"),
 	        free_all = new JButton("free_all");
+	//定义表格类型
 	DefaultTableModel dtm = new DefaultTableModel();
 	JTable table = new JTable(dtm);
 	JLabel status  = new JLabel("All memory will be shown here.");
+	//列名字符串数组
 	static String [] headers = {"Memory Block ID", "Initializer Blocks", "Memory Block Size", "State", "Process/File Name"};
+	//调用建立内存管理面板函数
 	public MemoryPanel(Memory memory) {
 		mem = memory;
 		//panel.add(createTopPanel(), BorderLayout.PAGE_START);
@@ -53,7 +58,7 @@ public class MemoryPanel implements ActionListener{
 	//创建中心面板
 	JScrollPane createCenterPanel() {
 		JScrollPane scrollPane = new JScrollPane(table);
-		scrollPane.getViewport().setOpaque(false);
+		scrollPane.getViewport().setOpaque(true);
 		scrollPane.setOpaque(false);
 		return scrollPane;
 	}
@@ -72,6 +77,7 @@ public class MemoryPanel implements ActionListener{
 	public void refresh() {
 		List<MemoryPartition> free = MemoryModel.getInstance().getFree();
 		List<MemoryPartition> used = MemoryModel.getInstance().getUsed();
+		//all的属性与free和used之间关系
 		List<MemoryPartition> all = new ArrayList<MemoryPartition>();
 		Collections.sort(used);
 		all.addAll(used);   
@@ -90,6 +96,7 @@ public class MemoryPanel implements ActionListener{
 		for (int i = 0; i < data.length; i++){
 			data[i] = all.get(i).toStringArray();
 		}
+		//将vector内数据关联到headers
 		dtm.setDataVector(data, headers);
 		//System.out.println(data);
 	}

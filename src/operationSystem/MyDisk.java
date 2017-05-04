@@ -53,9 +53,9 @@ public class MyDisk implements Serializable{
 
 	
 	/**
-	 * 将某�?个磁盘块上的内容保存到磁盘上
+	 * 将某个磁盘块上的内容保存到磁盘上
 	 * @param a
-	 *   �?要保存到磁盘上的某一个磁块号
+	 *   要保存到磁盘上的某一个磁块号
 	 */
 	public void addUsed(MyDiskBlock a){
 		a.setId(nowpoint);
@@ -65,9 +65,9 @@ public class MyDisk implements Serializable{
 	}
 	
 	/**
-	 * 将制定盘块上的内容从磁块上删�?
+	 * 将制定盘块上的内容从磁块上删除
 	 * @param a
-	 * 盘块�?
+	 *
 	 */
 	public void deleteUsed(int a){
 		this.usedlist.remove(a);
@@ -78,7 +78,7 @@ public class MyDisk implements Serializable{
    * 打印已经使用过的磁盘块号
    */
 	public void showUsed() {
-		System.out.println("--------------以下为已经使用的磁盘块号--------------");
+		System.out.println("--------------Below is the disk id has been used--------------");
 		Iterator<Integer> it=usedlist.keySet().iterator();
 		while(it.hasNext()) {
 			System.out.print(usedlist.get(it.next()).getId() + "     ");
