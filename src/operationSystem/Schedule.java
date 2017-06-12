@@ -41,7 +41,7 @@ public class Schedule extends Thread {
 				e.printStackTrace();
 			}
 			if (getFrm().getPreparedTable().getRowCount() > 0 && 
-			    getFrm().getRunTable().getRowCount() < 3) 
+			    getFrm().getRunTable().getRowCount() < 1)
 			{
 				//
 				DefaultTableModel dft = (DefaultTableModel) getFrm()

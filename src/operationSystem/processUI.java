@@ -15,7 +15,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class processUI extends JFrame implements ActionListener {
 	private static processUI frm;
-	private static final long serialVersionUID = 1L;
+	//private static final long serialVersionUID = 1L;
 	
 	private JPanel jContentPane = null;
 	private JPanel InfoPanel = null;
